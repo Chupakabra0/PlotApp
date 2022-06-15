@@ -19,9 +19,6 @@
     <Folder Include="Core\Commands\RelayCommand\" />
     <Folder Include="Core\Commands\AsyncCommand\" />
     <Folder Include="Core\Converters\" />
-    <Folder Include="MVVM\Models\" />
-    <Folder Include="MVVM\ViewModels\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

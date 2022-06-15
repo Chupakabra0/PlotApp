@@ -3,6 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MVVM/Views/CreatePlotView/CreatePlotView.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="Resources/Style.xaml"></ResourceDictionary>
     </Application.Resources>
 </Application>
