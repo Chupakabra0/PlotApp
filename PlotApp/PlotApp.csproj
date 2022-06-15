@@ -12,7 +12,16 @@
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="OxyPlot.Wpf" Version="2.1.0" />
-    <PackageReference Include="PropertyChanged.Fody" Version="3.4.1" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.1" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\Commands\RelayCommand\" />
+    <Folder Include="Core\Commands\AsyncCommand\" />
+    <Folder Include="Core\Converters\" />
+    <Folder Include="MVVM\Models\" />
+    <Folder Include="MVVM\ViewModels\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>
