@@ -1,0 +1,128 @@
+﻿<Window x:Class="PlotApp.MVVM.Views.FillFunctionView.FillFunctionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlotApp.MVVM.Views.FillFunctionView"
+        xmlns:fillFunctionViewModel="clr-namespace:PlotApp.MVVM.ViewModels.FillFunctionViewModel"
+        mc:Ignorable="d"
+        Title="FillFunctionView" Height="300" Width="532">
+
+    <Window.DataContext>
+        <fillFunctionViewModel:FillFunctionViewModel></fillFunctionViewModel:FillFunctionViewModel>
+    </Window.DataContext>
+
+    <StackPanel Orientation="Vertical"
+                Margin="20"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <!--Function input-->
+                <TextBlock Text="F(x) =" FontSize="20"
+                           Margin="2"
+                           HorizontalAlignment="Right" VerticalAlignment="Center">
+                </TextBlock>
+
+                <!--x limits input-->
+                <TextBlock Text="x =" FontSize="20"
+                           Margin="2"
+                           HorizontalAlignment="Right" VerticalAlignment="Center">
+                </TextBlock>
+
+                <!--y limits input-->
+                <TextBlock Text="y =" FontSize="20"
+                           Margin="2"
+                           HorizontalAlignment="Right" VerticalAlignment="Center">
+                </TextBlock>
+
+                <!--h input-->
+                <TextBlock Text="h =" FontSize="20"
+                           Margin="2"
+                           HorizontalAlignment="Right" VerticalAlignment="Center">
+                </TextBlock>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                
+                <!--Function input-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <TextBox MinWidth="100" FontSize="20"
+                         Margin="2"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Text="{Binding Path=FunctionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </TextBox>
+
+                </StackPanel>
+
+                <!--x limits input-->
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <TextBox MinWidth="48" FontSize="20"
+                             Margin="2"
+                             HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Text="{Binding Path=LowLimitX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </TextBox>
+
+                    <TextBox MinWidth="48" FontSize="20"
+                             Margin="2"
+                             HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Text="{Binding Path=HighLimitX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </TextBox>
+
+                </StackPanel>
+
+                <!--y limits input-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <TextBox MinWidth="48" FontSize="20" Margin="2" HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             Text="{Binding Path=LowLimitY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </TextBox>
+
+                    <TextBox MinWidth="48" FontSize="20" Margin="2" HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             Text="{Binding Path=HighLimitY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </TextBox>
+
+                </StackPanel>
+
+                <!--h limits input-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <TextBox MinWidth="48" FontSize="20" Margin="2" HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             Text="{Binding Path=Step, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </TextBox>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Margin="20"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Button Style="{StaticResource DefaultButton}"
+                    Content="Evaluate"
+                    Command="{Binding Path=EvaluateCommand}"></Button>
+
+            <Button Style="{StaticResource DefaultButton}"
+                    Content="Cancel" Command="{Binding Path=EvaluateCommand}"></Button>
+
+
+        </StackPanel>
+
+    </StackPanel>
+
+</Window>

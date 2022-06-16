@@ -42,12 +42,21 @@
                         Command="{Binding Path=SaveToFileCommand}">
                 </Button>
 
-                <Button Style="{StaticResource DefaultButton}" Content="Add from file"
+                <Button Style="{StaticResource DefaultButton}"
+                        Content="Add from file"
                         Command="{Binding Path=AddFromFileCommand}">
                 </Button>
 
             </StackPanel>
 
+            <StackPanel Orientation="Horizontal" Margin="10">
+
+                <Button Style="{StaticResource DefaultButton}"
+                        Content="Fill by F(x)"
+                        Command="{Binding Path=FillFunctionCommand}">
+                </Button>
+
+            </StackPanel>
 
         </StackPanel>
 

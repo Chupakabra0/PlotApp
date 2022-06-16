@@ -9,6 +9,7 @@ using Microsoft.Win32;
 using Newtonsoft.Json;
 using PlotApp.Core.Commands.RelayCommand;
 using PlotApp.Core.DataManipulators.IDataManipulator;
+using PlotApp.MVVM.Views.FillFunctionView;
 using Point = PlotApp.MVVM.Models.Dot.Point;
 
 namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
@@ -54,6 +55,21 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
                 }
 
                 MessageBox.Show("Ready");
+            });
+
+        public ICommand FillFunctionCommand =>
+            new RelayCommand(_ => {
+                var window = new FillFunctionView();
+                if (!window.ShowDialog() ?? false) {
+                    var points = (window.DataContext as FillFunctionViewModel.FillFunctionViewModel)?.Points ?? new();
+
+                    foreach (var point in points) {
+                        this.Points.Add(point);
+                    }
+                }
+                //else {
+                    MessageBox.Show("Ready");
+                //}
             });
 
         private readonly IDataManipulator dataManipulator_;
