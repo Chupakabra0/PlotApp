@@ -17,14 +17,34 @@
     <Grid Margin="20">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Column="0" Orientation="Vertical"
+                    Margin="20"
+                    HorizontalAlignment="Center" VerticalAlignment="Top">
             <DataGrid Style="{StaticResource DefaultDataGrid}"
                       ItemsSource="{Binding Path=Points, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             </DataGrid>
+            <!--<Button Content="Click me!" Command="{Binding Path=TestMessage}"></Button>-->
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical"
+                    Margin="20"
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                
+                <Button Style="{StaticResource DefaultButton}" Content="Save to file"
+                        Command="{Binding Path=SaveToFileCommand}">
+                </Button>
+
+                <Button Style="{StaticResource DefaultButton}" Content="Add from file"
+                        Command="{Binding Path=AddFromFileCommand}">
+                </Button>
+
+            </StackPanel>
+
 
         </StackPanel>
 

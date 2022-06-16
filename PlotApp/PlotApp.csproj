@@ -16,8 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Core\Commands\RelayCommand\" />
-    <Folder Include="Core\Commands\AsyncCommand\" />
     <Folder Include="Core\Converters\" />
   </ItemGroup>
 
