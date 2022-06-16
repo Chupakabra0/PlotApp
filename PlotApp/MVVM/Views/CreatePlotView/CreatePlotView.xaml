@@ -7,6 +7,7 @@
         xmlns:collections="clr-namespace:System.Collections;assembly=System.Runtime"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         xmlns:createPlotViewModel="clr-namespace:PlotApp.MVVM.ViewModels.CreatePlotViewModel"
+        xmlns:validations="clr-namespace:PlotApp.Core.Validations"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
@@ -26,8 +27,10 @@
                     HorizontalAlignment="Center" VerticalAlignment="Top">
             <DataGrid Style="{StaticResource DefaultDataGrid}"
                       ItemsSource="{Binding Path=Points, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.RowValidationRules>
+                    <validations:PointValidation ValidationStep="UpdatedValue"></validations:PointValidation>
+                </DataGrid.RowValidationRules>
             </DataGrid>
-            <!--<Button Content="Click me!" Command="{Binding Path=TestMessage}"></Button>-->
         </StackPanel>
 
         <StackPanel Grid.Column="1" Orientation="Vertical"
