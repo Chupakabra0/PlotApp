@@ -1,8 +1,8 @@
 ﻿namespace PlotApp.MVVM.Models.Dot {
     internal class Point {
         public Point() {
-            this.X = null;
-            this.Y = null;
+            this.X = 0;
+            this.Y = 0;
         }
 
         public Point(double x, double y) {
@@ -10,7 +10,7 @@
             this.Y = y;
         }
 
-        public double? X { get; set; }
-        public double? Y { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
     }
 }

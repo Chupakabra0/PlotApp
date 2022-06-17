@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlotApp.MVVM.Views.FillFunctionView"
         xmlns:fillFunctionViewModel="clr-namespace:PlotApp.MVVM.ViewModels.FillFunctionViewModel"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="FillFunctionView" Height="300" Width="532">
 
@@ -115,10 +116,26 @@
 
             <Button Style="{StaticResource DefaultButton}"
                     Content="Evaluate"
-                    Command="{Binding Path=EvaluateCommand}"></Button>
+                    Command="{Binding Path=EvaluateCommand}">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="Click">
+                        <b:CallMethodAction MethodName="Close"
+                                            TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
+                        </b:CallMethodAction>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </Button>
 
             <Button Style="{StaticResource DefaultButton}"
-                    Content="Cancel" Command="{Binding Path=EvaluateCommand}"></Button>
+                    Content="Cancel">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="Click">
+                        <b:CallMethodAction MethodName="Close"
+                                            TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
+                        </b:CallMethodAction>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </Button>
 
 
         </StackPanel>

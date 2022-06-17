@@ -22,16 +22,18 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Orientation="Vertical"
+        <!--<StackPanel Grid.Column="0" Orientation="Vertical"
                     Margin="20"
-                    HorizontalAlignment="Center" VerticalAlignment="Top">
+                    HorizontalAlignment="Center" VerticalAlignment="Top">-->
             <DataGrid Style="{StaticResource DefaultDataGrid}"
                       ItemsSource="{Binding Path=Points, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                
                 <DataGrid.RowValidationRules>
                     <validations:PointValidation ValidationStep="UpdatedValue"></validations:PointValidation>
                 </DataGrid.RowValidationRules>
+
             </DataGrid>
-        </StackPanel>
+        <!--</StackPanel>-->
 
         <StackPanel Grid.Column="1" Orientation="Vertical"
                     Margin="20"

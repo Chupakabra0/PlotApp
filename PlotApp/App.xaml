@@ -1,7 +1,15 @@
 ﻿<Application x:Class="PlotApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="MVVM/Views/CreatePlotView/CreatePlotView.xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--<Application.StartupUri>
+        MVVM/Views/CreatePlotView/CreatePlotView.xaml
+    </Application.StartupUri>-->
+
+    <Application.StartupUri>
+        MVVM/Views/PlotView/PlotView.xaml
+    </Application.StartupUri>
+
     <Application.Resources>
         <ResourceDictionary Source="Resources/Style.xaml"></ResourceDictionary>
     </Application.Resources>

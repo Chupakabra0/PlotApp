@@ -35,6 +35,7 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
                 this.Points = pb.BuildPoints();
             });
 
+
         public ObservableCollection<Point> Points { get; set; }
 
         private Func<double, double> Function =>
