@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using OxyPlot;
-using OxyPlot.Annotations;
 using OxyPlot.Axes;
-using OxyPlot.Series;
 using PlotApp.Core.Commands.RelayCommand;
+using PlotApp.Core.FunctionWrapper;
+using PlotApp.MVVM.Models.Function;
 using PlotApp.MVVM.Views.CreatePlotView;
 
+using Point = PlotApp.MVVM.Models.Dot.Point;
 
 namespace PlotApp.MVVM.ViewModels.PlotViewModel {
     internal class PlotViewModel : BaseViewModel.BaseViewModel {
         public PlotViewModel() {
-            this.Model.Series.Add(this.Area);
             //this.Model.PlotView.InvalidatePlot();
         }
 
@@ -26,24 +24,22 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
 
                 if (!window.ShowDialog() ?? false) {
                     var points = (window.DataContext as CreatePlotViewModel.CreatePlotViewModel)?.Points ?? new();
+                    
+                    this.Functions.Add(new FunctionWrapper(
+                        new Function(new List<Point>(points), 1, 1, 0, 0)
+                    ));
 
-                    foreach (var point in points) {
-                        this.Area.Points.Add(new(point.X, point.Y));
+                    this.Model.Series.Clear();
+
+                    foreach (var f in this.Functions) {
+                        this.Model.Series.Add(f.GetSeries());
                     }
 
-                    //this.Model.Series.Add(this.Area);
                     this.Model.PlotView.InvalidatePlot();
-
-                    //this.Area.Points.Clear();
-
-                    MessageBox.Show("Ready");
                 }
             });
 
         public PlotModel Model { get; set; } = new PlotModel {
-            Series = { new AreaSeries() {
-                Points = { new DataPoint(0, 0) }
-            } },
             PlotType = PlotType.Cartesian,
             Axes = {
                 new LinearAxis {
@@ -65,6 +61,6 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             }
         };
 
-        public FunctionSeries Area { get; set; } = new();
+        public ObservableCollection<FunctionWrapper> Functions { get; set; } = new();
     }
 }

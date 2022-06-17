@@ -3,8 +3,13 @@ using PlotApp.MVVM.Models.Dot;
 
 namespace PlotApp.MVVM.Models.Function {
     internal class Function {
-        public Function() {
-            
+        public Function(List<Point> points, double scaleX, double scaleY, double wrapX, double wrapY, string name = "") {
+            this.Points = points;
+            this.ScaleX = scaleX;
+            this.ScaleY = scaleY;
+            this.WrapX  = wrapX;
+            this.WrapY  = wrapY;
+            this.Name   = name;
         }
 
         public string          Name   { get; set; } = string.Empty;

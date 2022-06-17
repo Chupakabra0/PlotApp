@@ -27,11 +27,30 @@
         <StackPanel Grid.Column="1" Orientation="Vertical"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <Button Content="Add"
-                        Style="{StaticResource DefaultButton}"
-                        HorizontalAlignment="Center" VerticalAlignment="Center"
-                        Command="{Binding Path=AddPlotCommand}">
-                </Button>
+            <ListView ItemsSource="{Binding Path=Functions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Margin="20">
+                            
+                            <TextBlock Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBlock>
+                            
+                            <TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBox>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Content="Add"
+                    Style="{StaticResource DefaultButton}"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Command="{Binding Path=AddPlotCommand}">
+            </Button>
 
         </StackPanel>
 
