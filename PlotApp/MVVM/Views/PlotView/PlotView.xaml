@@ -34,13 +34,112 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Margin="20">
-                            
-                            <TextBlock Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                            </TextBlock>
-                            
-                            <TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                            </TextBox>
 
+                            <Grid Width="150"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                           FontSize="20"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center">
+                                </TextBlock>
+
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Top">
+
+                                    <Button Content="Edit"
+                                            Style="{StaticResource DefaultButton}"
+                                            HorizontalAlignment="Right">
+                                    </Button>
+
+                                    <Button Content="Del"
+                                            Style="{StaticResource DefaultButton}"
+                                            HorizontalAlignment="Right">
+                                    </Button>
+
+                                </StackPanel>
+
+                            </Grid>
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                <StackPanel Orientation="Vertical"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+
+                                <TextBlock Text="Scale X">
+                                </TextBlock>
+
+                                <Slider x:Name="SliderScaleX"
+                                        Minimum="0.1" Maximum="10"
+                                        Value="1">
+                                </Slider>
+
+                                <TextBox Text="{Binding ElementName=SliderScaleX, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="Scale Y">
+                                </TextBlock>
+
+                                <Slider x:Name="SliderScaleY"
+                                        Minimum="0.1" Maximum="10"
+                                        Value="1">
+                                </Slider>
+
+                                <TextBox Text="{Binding ElementName=SliderScaleY, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="Wrap X">
+                                </TextBlock>
+
+                                <Slider x:Name="SliderWrapX"
+                                        Minimum="-10" Maximum="10"
+                                        Value="0">
+                                </Slider>
+
+                                <TextBox Text="{Binding ElementName=SliderWrapX, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="Wrap Y">
+                                </TextBlock>
+
+                                <Slider x:Name="SliderWrapY"
+                                        Minimum="-10" Maximum="10"
+                                        Value="0">
+                                </Slider>
+
+                                <TextBox Text="{Binding ElementName=SliderWrapY, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+
+                            </StackPanel>
+
+
+                            <!--<TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBox>-->
+
+                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

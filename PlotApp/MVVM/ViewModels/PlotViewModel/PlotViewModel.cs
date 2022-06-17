@@ -26,7 +26,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                     var points = (window.DataContext as CreatePlotViewModel.CreatePlotViewModel)?.Points ?? new();
                     
                     this.Functions.Add(new FunctionWrapper(
-                        new Function(new List<Point>(points), 1, 1, 0, 0)
+                        new Function(new List<Point>(points), 1, 1, 0, 0, "Temp")
                     ));
 
                     this.Model.Series.Clear();
@@ -39,7 +39,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                 }
             });
 
-        public PlotModel Model { get; set; } = new PlotModel {
+        public PlotModel Model { get; set;  } = new PlotModel {
             PlotType = PlotType.Cartesian,
             Axes = {
                 new LinearAxis {
