@@ -102,7 +102,9 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                     ExtraGridlineThickness = 1,
                     ExtraGridlineColor     = OxyColors.Black,
                     ExtraGridlineStyle     = LineStyle.Solid,
-                    Title                  = "X"
+                    Title                  = "X",
+                    MajorGridlineColor     = OxyColors.LightGray,
+                    MajorGridlineStyle     = LineStyle.Dot
                 },
                 new LinearAxis {
                     Position               = AxisPosition.Left,
@@ -110,7 +112,9 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                     ExtraGridlineThickness = 1,
                     ExtraGridlineColor     = OxyColors.Black,
                     ExtraGridlineStyle     = LineStyle.Solid,
-                    Title                  = "Y"
+                    Title                  = "Y",
+                    MajorGridlineColor     = OxyColors.LightGray,
+                    MajorGridlineStyle     = LineStyle.Dot
                 }
             }
         };
