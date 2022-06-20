@@ -11,6 +11,12 @@
     </Application.StartupUri>
 
     <Application.Resources>
-        <ResourceDictionary Source="Resources/Style.xaml"></ResourceDictionary>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Style.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Resources/Converters.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
+
 </Application>
