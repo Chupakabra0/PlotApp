@@ -17,12 +17,17 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
     internal class CreatePlotViewModel : BaseViewModel.BaseViewModel {
         public CreatePlotViewModel() {
             this.Points = new ObservableCollection<Point>(
-                new List<Point> { new(1.0, 1.0), new(2.0, 2.0), new(3.0, 3.0) }
+                //new List<Point> { new(1.0, 1.0), new(2.0, 2.0), new(3.0, 3.0) }
             );
             this.dataManipulator_ = new JsonDataManipulator();
         }
 
         public ObservableCollection<Point> Points { get; set; }
+
+        public double ScaleX { get; set; } = 1.0;
+        public double ScaleY { get; set; } = 1.0;
+        public double WrapX  { get; set; } = 0.0;
+        public double WrapY  { get; set; } = 0.0;
 
         public ICommand SaveToFileCommand =>
             new RelayCommand(_ => {

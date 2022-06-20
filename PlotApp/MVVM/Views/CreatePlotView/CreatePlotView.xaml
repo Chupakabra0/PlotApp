@@ -2,20 +2,18 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PlotApp"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:PlotApp"
         xmlns:collections="clr-namespace:System.Collections;assembly=System.Runtime"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         xmlns:createPlotViewModel="clr-namespace:PlotApp.MVVM.ViewModels.CreatePlotViewModel"
-        xmlns:validations="clr-namespace:PlotApp.Core.Validations"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:validations="clr-namespace:PlotApp.Core.Validations" mc:Ignorable="d" Title="MainWindow" Height="550"
+        Width="979">
 
     <Window.DataContext>
         <createPlotViewModel:CreatePlotViewModel></createPlotViewModel:CreatePlotViewModel>
     </Window.DataContext>
-    
-    <Grid Margin="20">
+
+    <Grid Margin="20" HorizontalAlignment="Center" VerticalAlignment="Stretch">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -25,42 +23,115 @@
         <!--<StackPanel Grid.Column="0" Orientation="Vertical"
                     Margin="20"
                     HorizontalAlignment="Center" VerticalAlignment="Top">-->
-            <DataGrid Style="{StaticResource DefaultDataGrid}"
-                      ItemsSource="{Binding Path=Points, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                
-                <DataGrid.RowValidationRules>
-                    <validations:PointValidation ValidationStep="UpdatedValue"></validations:PointValidation>
-                </DataGrid.RowValidationRules>
+        <DataGrid Grid.Column="0"  Style="{StaticResource DefaultDataGrid}"
+                  ItemsSource="{Binding Path=Points, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  x:Name="PointsGrid" Margin="20">
 
-            </DataGrid>
+            <DataGrid.RowValidationRules>
+                <validations:PointValidation ValidationStep="UpdatedValue"></validations:PointValidation>
+            </DataGrid.RowValidationRules>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="X" Binding="{Binding Path=X}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Y" Binding="{Binding Path=Y}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
         <!--</StackPanel>-->
 
-        <StackPanel Grid.Column="1" Orientation="Vertical"
-                    Margin="20"
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <StackPanel Orientation="Horizontal" Margin="10">
-                
-                <Button Style="{StaticResource DefaultButton}" Content="Save to file"
-                        Command="{Binding Path=SaveToFileCommand}">
-                </Button>
+        <Grid Grid.Column="1" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <Button Style="{StaticResource DefaultButton}"
-                        Content="Add from file"
-                        Command="{Binding Path=AddFromFileCommand}">
-                </Button>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Vertical">
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Margin="0">
+
+                        <TextBlock Text="Scale X">
+                        </TextBlock>
+
+                        <TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        </TextBox>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Margin="0">
+
+                        <TextBlock Text="Scale Y">
+                        </TextBlock>
+
+                        <TextBox Text="{Binding Path=ScaleY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        </TextBox>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Margin="0">
+
+                        <TextBlock Text="Wrap X">
+                        </TextBlock>
+
+                        <TextBox Text="{Binding Path=WrapX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        </TextBox>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Margin="0">
+
+                        <TextBlock Text="Wrap Y">
+                        </TextBlock>
+
+                        <TextBox Text="{Binding Path=WrapY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        </TextBox>
+
+                    </StackPanel>
+
+                </StackPanel>
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="10">
+            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <Button Style="{StaticResource DefaultButton}"
-                        Content="Fill by F(x)"
-                        Command="{Binding Path=FillFunctionCommand}">
-                </Button>
+                <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+
+                    <Button Style="{StaticResource DefaultButton}" Content="Save to file"
+                            Command="{Binding Path=SaveToFileCommand}">
+                    </Button>
+
+                    <Button Style="{StaticResource DefaultButton}" Content="Add from file"
+                            Command="{Binding Path=AddFromFileCommand}">
+                    </Button>
+
+                    <Button Style="{StaticResource DefaultButton}" Content="Fill by F(x)"
+                            Command="{Binding Path=FillFunctionCommand}">
+                    </Button>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+
+                    <Button Style="{StaticResource DefaultButton}" Content="Cancel" Command="{Binding}">
+                    </Button>
+
+                    <Button Style="{StaticResource DefaultButton}" Content="Done" Command="{Binding}">
+                    </Button>
+
+                </StackPanel>
 
             </StackPanel>
-
-        </StackPanel>
+        </Grid>
 
     </Grid>
 </Window>

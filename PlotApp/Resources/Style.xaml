@@ -8,7 +8,7 @@
     </Style>
 
     <Style TargetType="DataGrid" x:Key="DefaultDataGrid">
-        <Setter Property="AutoGenerateColumns" Value="True"></Setter>
+        <Setter Property="AutoGenerateColumns" Value="False"></Setter>
         <Setter Property="CanUserAddRows" Value="True"></Setter>
         <Setter Property="CanUserDeleteRows" Value="True"></Setter>
         <Setter Property="SelectionUnit" Value="FullRow"></Setter>

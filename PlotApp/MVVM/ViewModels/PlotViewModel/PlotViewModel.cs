@@ -23,10 +23,18 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                 var window = new CreatePlotView();
 
                 if (!window.ShowDialog() ?? false) {
-                    var points = (window.DataContext as CreatePlotViewModel.CreatePlotViewModel)?.Points ?? new();
+                    var context = window.DataContext as CreatePlotViewModel.CreatePlotViewModel;
                     
-                    this.Functions.Add(new FunctionWrapper(
-                        new Function(new List<Point>(points), 1, 1, 0, 0, "Temp")
+                    var points = context?.Points ?? new();
+
+                    var scaleX = context?.ScaleX ?? 1.0;
+                    var scaleY = context?.ScaleY ?? 1.0;
+
+                    var wrapX = context?.WrapX ?? 0.0;
+                    var wrapY = context?.WrapY ?? 0.0;
+
+                    this.Functions.Add(new FunctionWrapper(new Function(
+                        new List<Point>(points), scaleX, scaleY, wrapX, wrapY, "Temp")
                     ));
 
                     this.Model.Series.Clear();

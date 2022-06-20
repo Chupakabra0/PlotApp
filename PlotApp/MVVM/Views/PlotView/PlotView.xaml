@@ -30,22 +30,29 @@
             <ListView ItemsSource="{Binding Path=Functions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical"
+                        <!--<StackPanel Orientation="Vertical"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Margin="20">
+                                    Margin="20">-->
 
-                            <Grid Width="150"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center">
+                            <Grid Width="250"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center">
 
-                                <TextBlock Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"
+                                           Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            FontSize="20"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center">
                                 </TextBlock>
 
-                                <StackPanel Orientation="Horizontal"
+                                <StackPanel Grid.Column="1"
+                                            Orientation="Horizontal"
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Top">
 
@@ -63,7 +70,7 @@
 
                             </Grid>
 
-                            <StackPanel Orientation="Horizontal"
+                            <!--<StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center">
 
@@ -136,11 +143,11 @@
                             </StackPanel>
 
 
-                            <!--<TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                            </TextBox>-->
+                            --><!--<TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBox>--><!--
 
-                            </StackPanel>
-                        </StackPanel>
+                            </StackPanel>-->
+                        <!--</StackPanel>-->
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
