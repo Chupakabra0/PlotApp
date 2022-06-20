@@ -23,7 +23,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             new RelayCommand(_ => {
                 var window = new CreatePlotView();
 
-                if (!window.ShowDialog() ?? false) {
+                if (window.ShowDialog() ?? false) {
                     var context = window.DataContext as CreatePlotViewModel.CreatePlotViewModel;
                     
                     var points = context?.Points ?? new();
@@ -70,7 +70,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                         )
                     };
 
-                    if (!window.ShowDialog() ?? false) {
+                    if (window.ShowDialog() ?? false) {
                         var context = window.DataContext as CreatePlotViewModel.CreatePlotViewModel;
 
                         var points = context?.Points ?? new();

@@ -115,24 +115,32 @@
                     HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <Button Style="{StaticResource DefaultButton}"
-                    Content="Evaluate"
+                    Content="Evaluate" IsDefault="True"
                     Command="{Binding Path=EvaluateCommand}">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="Click">
-                        <b:CallMethodAction MethodName="Close"
+                        <!--<b:CallMethodAction MethodName="Close"
                                             TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
-                        </b:CallMethodAction>
+                        </b:CallMethodAction>-->
+                        <b:ChangePropertyAction PropertyName="DialogResult"
+                                                TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
+                                                Value="true">
+                        </b:ChangePropertyAction>
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
             </Button>
 
             <Button Style="{StaticResource DefaultButton}"
-                    Content="Cancel">
+                    Content="Cancel" IsCancel="True">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="Click">
-                        <b:CallMethodAction MethodName="Close"
+                        <!--<b:CallMethodAction MethodName="Close"
                                             TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
-                        </b:CallMethodAction>
+                        </b:CallMethodAction>-->
+                        <b:ChangePropertyAction PropertyName="DialogResult"
+                                                TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
+                                                Value="false">
+                        </b:ChangePropertyAction>
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
             </Button>

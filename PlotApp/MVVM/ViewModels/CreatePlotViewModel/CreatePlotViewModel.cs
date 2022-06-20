@@ -74,7 +74,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
             new RelayCommand(_ => {
                 var window = new FillFunctionView();
 
-                if (!window.ShowDialog() ?? false) {
+                if (window.ShowDialog() ?? false) {
                     var points = (window.DataContext as FillFunctionViewModel.FillFunctionViewModel)?.Points ?? new();
 
                     foreach (var point in points) {
