@@ -5,6 +5,11 @@
             this.Y = 0;
         }
 
+        //public Point(Point xy) {
+        //    this.X = xy.X;
+        //    this.Y = xy.Y;
+        //}
+
         public Point(double x, double y) {
             this.X = x;
             this.Y = y;

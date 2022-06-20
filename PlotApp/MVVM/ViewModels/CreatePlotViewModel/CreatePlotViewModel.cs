@@ -16,18 +16,25 @@ using Point = PlotApp.MVVM.Models.Dot.Point;
 namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
     internal class CreatePlotViewModel : BaseViewModel.BaseViewModel {
         public CreatePlotViewModel() {
-            this.Points = new ObservableCollection<Point>(
-                //new List<Point> { new(1.0, 1.0), new(2.0, 2.0), new(3.0, 3.0) }
-            );
-            this.dataManipulator_ = new JsonDataManipulator();
+            
         }
 
-        public ObservableCollection<Point> Points { get; set; }
+        public CreatePlotViewModel(List<Point> points, double scaleX, double scaleY, double wrapX, double wrapY, string name = "") {
+            this.Points = new(points);
+            this.ScaleX = scaleX;
+            this.ScaleY = scaleY;
+            this.WrapX = wrapX;
+            this.WrapY = wrapY;
+            this.Name = name;
+        }
+
+        public ObservableCollection<Point> Points { get; set; } = new();
 
         public double ScaleX { get; set; } = 1.0;
         public double ScaleY { get; set; } = 1.0;
         public double WrapX  { get; set; } = 0.0;
         public double WrapY  { get; set; } = 0.0;
+        public string Name   { get; set; } = string.Empty;
 
         public ICommand SaveToFileCommand =>
             new RelayCommand(_ => {
@@ -78,6 +85,6 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
                 }
             });
 
-        private readonly IDataManipulator dataManipulator_;
+        private readonly IDataManipulator dataManipulator_ = new JsonDataManipulator();
     }
 }

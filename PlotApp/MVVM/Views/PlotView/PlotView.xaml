@@ -57,7 +57,9 @@
 
                                     <Button Content="Edit"
                                             Style="{StaticResource DefaultButton}"
-                                            HorizontalAlignment="Right">
+                                            HorizontalAlignment="Right"
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.EditPlotCommand}"
+                                            CommandParameter="{Binding Path=.}">
                                     </Button>
 
                                     <Button Content="Del"
@@ -65,9 +67,7 @@
                                             HorizontalAlignment="Right"
                                             Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.DeletePlotCommand}"
                                             CommandParameter="{Binding Path=.}">
-                                    <!--<Button.DataContext>
-                                        <plotViewModel:PlotViewModel></plotViewModel:PlotViewModel>
-                                    </Button.DataContext>-->
+
                                     </Button>
 
                                 </StackPanel>

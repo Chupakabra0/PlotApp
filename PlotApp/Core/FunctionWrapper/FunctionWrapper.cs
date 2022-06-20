@@ -47,16 +47,21 @@ namespace PlotApp.Core.FunctionWrapper {
         public double WrapY  { get; set; }
 
         private List<Point> PointConstuct(IEnumerable<Point> points) {
-            var result = new List<Point>(points);
+            //var result = new List<Point>(points);
+
+            var enumerable = points.ToList();
+            var result     = new List<Point>(enumerable.Count);
+            result.AddRange(enumerable.Select(e => new Point(e.X, e.Y)));
+
             return this.modifier_.Modify(result);
         }
 
         private void UpdateAll() {
-            this.Function.Name   = this.Name;
-            this.Function.ScaleX = this.ScaleX;
-            this.Function.ScaleY = this.ScaleY;
-            this.Function.WrapX  = this.WrapX;
-            this.Function.WrapY  = this.WrapY;
+            //this.Function.Name   = this.Name;
+            //this.Function.ScaleX = this.ScaleX;
+            //this.Function.ScaleY = this.ScaleY;
+            //this.Function.WrapX  = this.WrapX;
+            //this.Function.WrapY  = this.WrapY;
 
             this.modifier_ = new ScaleXModifier(this.ScaleX,
                 new ScaleYModifier(this.ScaleY,
