@@ -43,16 +43,17 @@
         </DataGrid>
         <!--</StackPanel>-->
 
-        <Grid Grid.Column="1" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Grid.Column="1" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0" Orientation="Vertical">
+            <StackPanel Grid.Row="0" Orientation="Vertical"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical">
 
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
@@ -60,7 +61,8 @@
                         <TextBlock Text="Name">
                         </TextBlock>
 
-                        <TextBox Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox Style="{StaticResource DefaultTextBox}"
+                                 Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
@@ -71,7 +73,9 @@
                         <TextBlock Text="Scale X">
                         </TextBlock>
 
-                        <TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox Style="{StaticResource SmallTextBox}"
+                                 HorizontalContentAlignment="Center" VerticalAlignment="Center"
+                                 Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
@@ -82,7 +86,9 @@
                         <TextBlock Text="Scale Y">
                         </TextBlock>
 
-                        <TextBox Text="{Binding Path=ScaleY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Text="{Binding Path=ScaleY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
@@ -93,7 +99,9 @@
                         <TextBlock Text="Wrap X">
                         </TextBlock>
 
-                        <TextBox Text="{Binding Path=WrapX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Text="{Binding Path=WrapX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
@@ -104,7 +112,9 @@
                         <TextBlock Text="Wrap Y">
                         </TextBlock>
 
-                        <TextBox Text="{Binding Path=WrapY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Text="{Binding Path=WrapY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
@@ -113,7 +123,7 @@
 
             </StackPanel>
 
-            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
 
                 <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center"
                             VerticalAlignment="Center">
@@ -132,7 +142,7 @@
 
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center"
+                <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center"
                             VerticalAlignment="Center">
 
                     <Button Style="{StaticResource DefaultButton}" IsDefault="True" Content="Done" Command="{Binding}">

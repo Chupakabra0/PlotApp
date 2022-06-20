@@ -14,7 +14,6 @@
     </Window.DataContext>
 
     <StackPanel Orientation="Vertical"
-                Margin="20"
                 HorizontalAlignment="Center" VerticalAlignment="Center">
 
         <StackPanel Orientation="Horizontal"
@@ -26,14 +25,12 @@
                 <!--Function input-->
                 <TextBlock Text="F(x) =" FontSize="20"
                            Margin="2"
-                           HorizontalAlignment="Right" VerticalAlignment="Center">
-                </TextBlock>
+                           HorizontalAlignment="Right"/>
 
                 <!--x limits input-->
                 <TextBlock Text="x =" FontSize="20"
                            Margin="2"
-                           HorizontalAlignment="Right" VerticalAlignment="Center">
-                </TextBlock>
+                           HorizontalAlignment="Right"/>
 
                 <!--y limits input-->
                 <TextBlock Text="y =" FontSize="20"
@@ -55,10 +52,9 @@
                 <!--Function input-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <TextBox MinWidth="100" FontSize="20"
-                         Margin="2"
-                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                         Text="{Binding Path=FunctionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Style="{StaticResource DefaultTextBox}"
+                             Text="{Binding Path=FunctionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
                 </StackPanel>
@@ -67,14 +63,12 @@
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <TextBox MinWidth="48" FontSize="20"
-                             Margin="2"
+                    <TextBox Style="{StaticResource SmallTextBox}"
                              HorizontalAlignment="Center" VerticalAlignment="Center"
                              Text="{Binding Path=LowLimitX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
-                    <TextBox MinWidth="48" FontSize="20"
-                             Margin="2"
+                    <TextBox Style="{StaticResource SmallTextBox}"
                              HorizontalAlignment="Center" VerticalAlignment="Center"
                              Text="{Binding Path=HighLimitX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
@@ -84,13 +78,13 @@
                 <!--y limits input-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <TextBox MinWidth="48" FontSize="20" Margin="2" HorizontalAlignment="Center"
-                             VerticalAlignment="Center"
+                    <TextBox Style="{StaticResource SmallTextBox}"
+                             HorizontalAlignment="Center" VerticalAlignment="Center"
                              Text="{Binding Path=LowLimitY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
-                    <TextBox MinWidth="48" FontSize="20" Margin="2" HorizontalAlignment="Center"
-                             VerticalAlignment="Center"
+                    <TextBox Style="{StaticResource SmallTextBox}"
+                             HorizontalAlignment="Center" VerticalAlignment="Center"
                              Text="{Binding Path=HighLimitY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
@@ -99,8 +93,8 @@
                 <!--h limits input-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <TextBox MinWidth="48" FontSize="20" Margin="2" HorizontalAlignment="Center"
-                             VerticalAlignment="Center"
+                    <TextBox Style="{StaticResource SmallTextBox}"
+                             HorizontalAlignment="Center" VerticalAlignment="Center"
                              Text="{Binding Path=Step, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
