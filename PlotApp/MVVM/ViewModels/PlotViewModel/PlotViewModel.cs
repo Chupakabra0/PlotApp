@@ -47,6 +47,16 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                 }
             });
 
+        public ICommand DeletePlotCommand =>
+            new RelayCommand(o => {
+                var result = MessageBox.Show("Are you sure you want to delete {}?", "Delete", MessageBoxButton.YesNo,
+                                             MessageBoxImage.Warning, MessageBoxResult.No);
+
+                if (result == MessageBoxResult.Yes) {
+                    this.DeletePlot(o);
+                }  
+            });
+
         public PlotModel Model { get; set;  } = new PlotModel {
             PlotType = PlotType.Cartesian,
             Axes = {
@@ -70,5 +80,13 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
         };
 
         public ObservableCollection<FunctionWrapper> Functions { get; set; } = new();
+
+        private void DeletePlot(object o) {
+            var index = this.Functions.IndexOf(o as FunctionWrapper);
+
+            if (index > -1 && index < this.Functions.Count) {
+                this.Functions.RemoveAt(index);
+            }
+        }
     }
 }

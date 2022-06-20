@@ -6,8 +6,8 @@
         xmlns:collections="clr-namespace:System.Collections;assembly=System.Runtime"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         xmlns:createPlotViewModel="clr-namespace:PlotApp.MVVM.ViewModels.CreatePlotViewModel"
-        xmlns:validations="clr-namespace:PlotApp.Core.Validations" mc:Ignorable="d" Title="MainWindow" Height="550"
-        Width="979">
+        xmlns:validations="clr-namespace:PlotApp.Core.Validations" mc:Ignorable="d" Title="MainWindow"
+        Height="550" Width="979">
 
     <Window.DataContext>
         <createPlotViewModel:CreatePlotViewModel></createPlotViewModel:CreatePlotViewModel>
