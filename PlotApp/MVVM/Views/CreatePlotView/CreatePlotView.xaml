@@ -55,6 +55,17 @@
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
+                        <TextBlock Text="Name">
+                        </TextBlock>
+
+                        <TextBox Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        </TextBox>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Margin="0">
+
                         <TextBlock Text="Scale X">
                         </TextBlock>
 

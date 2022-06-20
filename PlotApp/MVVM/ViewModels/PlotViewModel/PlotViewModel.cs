@@ -34,8 +34,10 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                     var wrapX = context?.WrapX ?? 0.0;
                     var wrapY = context?.WrapY ?? 0.0;
 
+                    var name  = context?.Name ?? string.Empty;
+
                     this.Functions.Add(new FunctionWrapper(new Function(
-                        new List<Point>(points), scaleX, scaleY, wrapX, wrapY, "Temp")
+                        new List<Point>(points), scaleX, scaleY, wrapX, wrapY, name)
                     ));
 
                     this.UpdateAllPlots();
