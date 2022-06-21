@@ -34,10 +34,12 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                     var wrapX = context?.WrapX ?? 0.0;
                     var wrapY = context?.WrapY ?? 0.0;
 
+                    var tension = (double)(context?.Tension ?? (decimal)0.0);
+
                     var name  = context?.Name ?? string.Empty;
 
                     this.Functions.Add(new FunctionWrapper(new Function(
-                        new List<Point>(points), scaleX, scaleY, wrapX, wrapY, name)
+                        new List<Point>(points), scaleX, scaleY, wrapX, wrapY, name), tension
                     ));
 
                     this.UpdateAllPlots();
@@ -66,7 +68,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                 if (o is FunctionWrapper plot) {
                     var window = new CreatePlotView {
                         DataContext = new CreatePlotViewModel.CreatePlotViewModel(
-                             plot.Function.Points, plot.ScaleX, plot.ScaleY, plot.WrapX, plot.WrapY, plot.Name
+                             plot.Function.Points, plot.ScaleX, plot.ScaleY, plot.WrapX, plot.WrapY, plot.Tension, plot.Name
                         )
                     };
 
@@ -81,10 +83,12 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                         var wrapX = context?.WrapX ?? 0.0;
                         var wrapY = context?.WrapY ?? 0.0;
 
+                        var tension = (double)(context?.Tension ?? (decimal)0.0);
+
                         var name = context?.Name ?? string.Empty;
 
                         this.EditPlot(plot, new FunctionWrapper(new Function(
-                            new List<Point>(points), scaleX, scaleY, wrapX, wrapY, name)
+                            new List<Point>(points), scaleX, scaleY, wrapX, wrapY, name), tension
                         ));
 
                         this.UpdateAllPlots();
@@ -143,7 +147,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             this.Model.Series.Clear();
 
             foreach (var f in this.Functions) {
-                this.Model.Series.Add(f.GetSeries());
+                this.Model.Series.Add(f.GetLineSeries());
             }
 
             this.Model.PlotView.InvalidatePlot();

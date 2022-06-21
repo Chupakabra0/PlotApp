@@ -11,13 +11,14 @@ using PlotApp.MVVM.Models.Function;
 
 namespace PlotApp.Core.FunctionWrapper {
     internal class FunctionWrapper {
-        public FunctionWrapper(Function function) {
+        public FunctionWrapper(Function function, double tension/* = 0.5*/) {
             this.Function = function;
             this.Name     = this.Function.Name;
             this.ScaleX   = this.Function.ScaleX;
             this.ScaleY   = this.Function.ScaleY;
             this.WrapX    = this.Function.WrapX;
             this.WrapY    = this.Function.WrapY;
+            this.Tension  = tension;
 
             this.modifier_ = new ScaleXModifier(this.ScaleX,
                 new ScaleYModifier(this.ScaleY,
@@ -25,10 +26,12 @@ namespace PlotApp.Core.FunctionWrapper {
                         new WrapYModifier(this.WrapY))));
         }
 
-        public FunctionSeries GetSeries() {
+        public LineSeries GetLineSeries() {
             this.UpdateAll();
 
-            var series = new FunctionSeries();
+            var series = new LineSeries {
+                InterpolationAlgorithm = new CanonicalSpline(this.Tension)
+            };
             var points = this.PointConstuct(this.Function.Points);
 
             foreach (var point in points) {
@@ -40,11 +43,12 @@ namespace PlotApp.Core.FunctionWrapper {
 
         public Function Function { get; set; }
 
-        public string Name   { get; set; }
-        public double ScaleX { get; set; }
-        public double ScaleY { get; set; }
-        public double WrapX  { get; set; }
-        public double WrapY  { get; set; }
+        public string Name    { get; set; }
+        public double ScaleX  { get; set; }
+        public double ScaleY  { get; set; }
+        public double WrapX   { get; set; }
+        public double WrapY   { get; set; }
+        public double Tension { get; set; }
 
         private List<Point> PointConstuct(IEnumerable<Point> points) {
             //var result = new List<Point>(points);

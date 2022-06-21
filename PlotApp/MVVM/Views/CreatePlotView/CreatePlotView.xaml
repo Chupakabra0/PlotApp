@@ -44,10 +44,10 @@
         </DataGrid>
         <!--</StackPanel>-->
 
-        <Grid Grid.Column="1" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Grid.Column="1" Margin="0" HorizontalAlignment="Center">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
@@ -63,11 +63,33 @@
                         </TextBlock>
 
                         <TextBox Style="{StaticResource DefaultTextBox}"
+                                 MinWidth="150"
                                  Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
 
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Margin="0">
+                        <TextBlock Text="Tension">
+                        </TextBlock>
+
+                        <Slider x:Name="TensionSlider" MinWidth="150"
+                                Minimum="0.0" Maximum="1.0"
+                                SmallChange="0.05" LargeChange="0.1"
+                                Value="{Binding Path=Tension, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        </Slider>
+
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                 FontSize="20"
+                                 Text="{Binding ElementName=TensionSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}">
+                        </TextBlock>
+
+                        <!--<ComboBox Style="{StaticResource DefaultComboBox}"
+                                  ItemsSource="{Binding Path=InterpolationStrings}"
+                                  SelectedIndex="{Binding ChosenInterpolationStringIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        </ComboBox>-->
+                    </StackPanel>
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
@@ -124,7 +146,7 @@
 
             </StackPanel>
 
-            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center"
                             VerticalAlignment="Center">

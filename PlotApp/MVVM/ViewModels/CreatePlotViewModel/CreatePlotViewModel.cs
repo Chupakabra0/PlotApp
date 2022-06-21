@@ -18,13 +18,14 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
             
         }
 
-        public CreatePlotViewModel(List<Point> points, double scaleX, double scaleY, double wrapX, double wrapY, string name = "") {
+        public CreatePlotViewModel(List<Point> points, double scaleX, double scaleY, double wrapX, double wrapY, double tension, string name) {
             this.Points       = new(points);
             this.ScaleXString = scaleX.ToString(CultureInfo.InvariantCulture);
             this.ScaleYString = scaleY.ToString(CultureInfo.InvariantCulture);
             this.WrapXString  = wrapX.ToString(CultureInfo.InvariantCulture);
             this.WrapYString  = wrapY.ToString(CultureInfo.InvariantCulture);
             this.Name         = name;
+            this.Tension      = (decimal)tension;
         }
 
         public ObservableCollection<Point> Points { get; set; } = new();
@@ -34,6 +35,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
         public string WrapXString  { get; set; } = "0.0";
         public string WrapYString  { get; set; } = "0.0";
         public string Name         { get; set; } = "Plot";
+        public decimal Tension      { get; set; } = (decimal)0.0;
 
         public ICommand SaveToFileCommand =>
             new RelayCommand(_ => {
