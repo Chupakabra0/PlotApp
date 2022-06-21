@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
-using Newtonsoft.Json;
 using PlotApp.Core.Commands.RelayCommand;
 using PlotApp.Core.DataManipulators.IDataManipulator;
 using PlotApp.Core.Validations.ModelValidations;

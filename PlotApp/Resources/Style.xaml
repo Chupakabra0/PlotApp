@@ -27,9 +27,9 @@
         <Setter Property="SelectionMode" Value="Extended"></Setter>
 
         <Setter Property="CanUserReorderColumns" Value="False"></Setter>
-        <Setter Property="CanUserSortColumns" Value="False"></Setter>
-        <Setter Property="CanUserResizeColumns" Value="True"></Setter>
-        <Setter Property="CanUserResizeRows" Value="True"></Setter>
+        <Setter Property="CanUserSortColumns" Value="True"></Setter>
+        <Setter Property="CanUserResizeColumns" Value="False"></Setter>
+        <Setter Property="CanUserResizeRows" Value="False"></Setter>
         <Setter Property="IsReadOnly" Value="False"></Setter>
 
         <Setter Property="Margin" Value="10"></Setter>

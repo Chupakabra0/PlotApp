@@ -15,7 +15,7 @@ namespace PlotApp.Core.Commands.AsyncCommand {
     public class AsyncCommand : IAsyncCommand {
         public event EventHandler? CanExecuteChanged;
 
-        public AsyncCommand(Func<Task> execute, Func<bool>? canExecute = null) {
+        public AsyncCommand(Func<Task>? execute, Func<bool>? canExecute = null) {
             this.execute    = execute;
             this.canExecute = canExecute;
         }
@@ -28,7 +28,7 @@ namespace PlotApp.Core.Commands.AsyncCommand {
             if (this.CanExecute()) {
                 try {
                     this.IsExecuting = true;
-                    await this.execute();
+                    await this.execute?.Invoke()!;
                 }
                 finally {
                     this.IsExecuting = false;
@@ -56,7 +56,7 @@ namespace PlotApp.Core.Commands.AsyncCommand {
             }
         }
 
-        private readonly Func<Task>  execute;
+        private readonly Func<Task>? execute;
         private readonly Func<bool>? canExecute;
     }
 }
