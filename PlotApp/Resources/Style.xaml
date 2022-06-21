@@ -5,6 +5,8 @@
         <Setter Property="MinWidth" Value="100"></Setter>
         <Setter Property="FontSize" Value="20"></Setter>
         <Setter Property="Margin" Value="2"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
     </Style>
 
     <Style TargetType="TextBox" x:Key="SmallTextBox" BasedOn="{StaticResource DefaultTextBox}">

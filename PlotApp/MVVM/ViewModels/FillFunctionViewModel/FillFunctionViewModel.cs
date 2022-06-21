@@ -18,17 +18,14 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
         }
 
         public string FunctionString { get; set; } = "x^2";
-        public double LowLimitX      { get; set; } = 0;
-        public double HighLimitX     { get; set; } = 10;
-        public double LowLimitY      { get; set; } = -100;
-        public double HighLimitY     { get; set; } = 100;
+        public double LowLimitX      { get; set; } = -10.0;
+        public double HighLimitX     { get; set; } = 10.0;
+        public double LowLimitY      { get; set; } = double.NegativeInfinity;
+        public double HighLimitY     { get; set; } = double.PositiveInfinity;
         public double Step           { get; set; } = 0.1;
 
         public ICommand EvaluateCommand =>
             new RelayCommand(_ => {
-                var a = this.Function(0.1);
-                var b = $"F(x) = {this.FunctionString}";
-
                 var pb = new PointsBuilder(this.Function, new(this.LowLimitX, this.HighLimitX),
                                            new(this.LowLimitY, this.HighLimitY), this.Step);
 
