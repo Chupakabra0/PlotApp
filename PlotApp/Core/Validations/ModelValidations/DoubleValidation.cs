@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 
 namespace PlotApp.Core.Validations.ModelValidations {
-    public static class DoubleValidation {
+    public static class decimalValidation {
         public static bool IsDouble(string str) {
             var a = !string.Empty.Equals(str);
             var b = double.PositiveInfinity.ToString(CultureInfo.InvariantCulture).Equals(str);

@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Microsoft.Win32;
 using PlotApp.Core.Commands.RelayCommand;
 using PlotApp.Core.DataManipulators.IDataManipulator;
+using PlotApp.Core.Utils;
 using PlotApp.Core.Validations.ModelValidations;
 using PlotApp.MVVM.Views.FillFunctionView;
 
@@ -19,14 +20,14 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
             
         }
 
-        public CreatePlotViewModel(List<Point> points, double scaleX, double scaleY, double wrapX, double wrapY, double tension, string name) {
+        public CreatePlotViewModel(List<Point> points, decimal scaleX, decimal scaleY, decimal wrapX, decimal wrapY, decimal tension, string name) {
             this.Points       = new(points);
             this.ScaleXString = scaleX.ToString(CultureInfo.InvariantCulture);
             this.ScaleYString = scaleY.ToString(CultureInfo.InvariantCulture);
             this.WrapXString  = wrapX.ToString(CultureInfo.InvariantCulture);
             this.WrapYString  = wrapY.ToString(CultureInfo.InvariantCulture);
             this.Name         = name;
-            this.Tension      = (decimal)tension;
+            this.Tension      = tension;
         }
 
         public ObservableCollection<Point> Points { get; set; } = new();
@@ -36,7 +37,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
         public string  WrapXString  { get; set; } = "0.0";
         public string  WrapYString  { get; set; } = "0.0";
         public string  Name         { get; set; } = "Plot";
-        public decimal Tension      { get; set; } = (decimal)0.0;
+        public decimal Tension      { get; set; } = 0.0M;
 
         public ICommand SaveToFileCommand =>
             new RelayCommand(_ => {
@@ -89,16 +90,20 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
 
         public ICommand DoneCommand => new RelayCommand(null, _ => this.CheckAllStrings());
 
-        public double ScaleX => double.Parse(this.ScaleXString, CultureInfo.InvariantCulture);
-        public double ScaleY => double.Parse(this.ScaleYString, CultureInfo.InvariantCulture);
-        public double WrapX  => double.Parse(this.WrapXString,  CultureInfo.InvariantCulture);
-        public double WrapY  => double.Parse(this.WrapYString,  CultureInfo.InvariantCulture);
+        public decimal ScaleX
+            => DoubleDecimalCast.CastToDecimal(double.Parse(this.ScaleXString, CultureInfo.InvariantCulture));
+        public decimal ScaleY
+            => DoubleDecimalCast.CastToDecimal(double.Parse(this.ScaleYString, CultureInfo.InvariantCulture));
+        public decimal WrapX 
+            => DoubleDecimalCast.CastToDecimal(double.Parse(this.WrapXString,  CultureInfo.InvariantCulture));
+        public decimal WrapY
+            => DoubleDecimalCast.CastToDecimal(double.Parse(this.WrapYString,  CultureInfo.InvariantCulture));
 
         private readonly IDataManipulator dataManipulator_ = new JsonDataManipulator();
 
         private bool CheckAllStrings() =>
-            DoubleValidation.IsDouble(this.ScaleXString) && DoubleValidation.IsDouble(this.ScaleYString)
-            && DoubleValidation.IsDouble(this.WrapXString) && DoubleValidation.IsDouble(this.WrapYString)
+            decimalValidation.IsDouble(this.ScaleXString) && decimalValidation.IsDouble(this.ScaleYString)
+            && decimalValidation.IsDouble(this.WrapXString) && decimalValidation.IsDouble(this.WrapYString)
             && !this.Name.Equals(string.Empty);
     }
 }

@@ -6,6 +6,7 @@ using System.Windows.Input;
 using org.mariuszgromada.math.mxparser;
 using PlotApp.Core.Commands.RelayCommand;
 using PlotApp.Core.PointsBuilder;
+using PlotApp.Core.Utils;
 using PlotApp.Core.Validations.ModelValidations;
 using Expression = org.mariuszgromada.math.mxparser.Expression;
 using Point = PlotApp.MVVM.Models.Dot.Point;
@@ -41,16 +42,21 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
         private Func<double, double> function_ =>
             x => new Expression($"F({x.ToString(CultureInfo.InvariantCulture)})", this.functionWrapper_).calculate();
 
-        private double lowLimitX_  => double.Parse(this.LowLimitXString,  CultureInfo.InvariantCulture);
-        private double highLimitX_ => double.Parse(this.HighLimitXString, CultureInfo.InvariantCulture);
-        private double lowLimitY_  => double.Parse(this.LowLimitYString,  CultureInfo.InvariantCulture);
-        private double highLimitY_ => double.Parse(this.HighLimitYString, CultureInfo.InvariantCulture);
-        private double step_       => double.Parse(this.StepString,       CultureInfo.InvariantCulture);
+        private decimal lowLimitX_ 
+            => DoubleDecimalCast.CastToDecimal(double.Parse(this.LowLimitXString,  CultureInfo.InvariantCulture));
+        private decimal highLimitX_
+            => DoubleDecimalCast.CastToDecimal(double.Parse(this.HighLimitXString, CultureInfo.InvariantCulture));
+        private decimal lowLimitY_ 
+            => DoubleDecimalCast.CastToDecimal(double.Parse(this.LowLimitYString,  CultureInfo.InvariantCulture));
+        private decimal highLimitY_
+            => DoubleDecimalCast.CastToDecimal(double.Parse(this.HighLimitYString, CultureInfo.InvariantCulture));
+        private decimal step_
+            => DoubleDecimalCast.CastToDecimal(double.Parse(this.StepString,       CultureInfo.InvariantCulture));
 
         private bool CheckAllStrings() => 
-            DoubleValidation.IsDouble(this.LowLimitXString) && DoubleValidation.IsDouble(this.HighLimitXString) 
-            && DoubleValidation.IsDouble(this.LowLimitYString) && DoubleValidation.IsDouble(this.HighLimitYString)
-            && DoubleValidation.IsDouble(this.StepString)
+            decimalValidation.IsDouble(this.LowLimitXString) && decimalValidation.IsDouble(this.HighLimitXString) 
+            && decimalValidation.IsDouble(this.LowLimitYString) && decimalValidation.IsDouble(this.HighLimitYString)
+            && decimalValidation.IsDouble(this.StepString)
             && this.functionWrapper_.checkSyntax();
 
         private void FillPoints() {

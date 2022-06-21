@@ -3,7 +3,7 @@ using PlotApp.MVVM.Models.Dot;
 
 namespace PlotApp.Core.FunctionModifiers {
     internal class ScaleXModifier : IFunctionModifier {
-        public ScaleXModifier(double scaleX, IFunctionModifier? nextModifier = null) {
+        public ScaleXModifier(decimal scaleX, IFunctionModifier? nextModifier = null) {
             this.ScaleX       = scaleX;
             this.NextModifier = nextModifier;
         }
@@ -17,6 +17,6 @@ namespace PlotApp.Core.FunctionModifiers {
         }
 
         public IFunctionModifier? NextModifier { get; set; }
-        public double             ScaleX       { get; set; }
+        public decimal             ScaleX       { get; set; }
     }
 }

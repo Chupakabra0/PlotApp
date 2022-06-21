@@ -10,12 +10,12 @@
         //    this.Y = xy.Y;
         //}
 
-        public Point(double x, double y) {
+        public Point(decimal x, decimal y) {
             this.X = x;
             this.Y = y;
         }
 
-        public double X { get; set; }
-        public double Y { get; set; }
+        public decimal X { get; set; }
+        public decimal Y { get; set; }
     }
 }

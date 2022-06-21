@@ -3,7 +3,7 @@ using PlotApp.MVVM.Models.Dot;
 
 namespace PlotApp.Core.FunctionModifiers {
     internal class WrapYModifier : IFunctionModifier {
-        public WrapYModifier(double wrapY, IFunctionModifier? nextModifier = null) {
+        public WrapYModifier(decimal wrapY, IFunctionModifier? nextModifier = null) {
             this.WrapY        = wrapY;
             this.NextModifier = nextModifier;
         }
@@ -17,6 +17,6 @@ namespace PlotApp.Core.FunctionModifiers {
         }
 
         public IFunctionModifier? NextModifier { get; set; }
-        public double             WrapY        { get; set; }
+        public decimal             WrapY        { get; set; }
     }
 }

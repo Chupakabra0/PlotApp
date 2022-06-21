@@ -28,13 +28,13 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                     
                     var points = context?.Points ?? new();
 
-                    var scaleX = context?.ScaleX ?? 1.0;
-                    var scaleY = context?.ScaleY ?? 1.0;
+                    var scaleX = context?.ScaleX ?? 1.0M;
+                    var scaleY = context?.ScaleY ?? 1.0M;
 
-                    var wrapX = context?.WrapX ?? 0.0;
-                    var wrapY = context?.WrapY ?? 0.0;
+                    var wrapX = context?.WrapX ?? 0.0M;
+                    var wrapY = context?.WrapY ?? 0.0M;
 
-                    var tension = (double)(context?.Tension ?? (decimal)0.0);
+                    var tension = context?.Tension ?? 0.0M;
 
                     var name  = context?.Name ?? string.Empty;
 
@@ -77,13 +77,13 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
 
                         var points = context?.Points ?? new();
 
-                        var scaleX = context?.ScaleX ?? 1.0;
-                        var scaleY = context?.ScaleY ?? 1.0;
+                        var scaleX = context?.ScaleX ?? 1.0M;
+                        var scaleY = context?.ScaleY ?? 1.0M;
 
-                        var wrapX = context?.WrapX ?? 0.0;
-                        var wrapY = context?.WrapY ?? 0.0;
+                        var wrapX = context?.WrapX ?? 0.0M;
+                        var wrapY = context?.WrapY ?? 0.0M;
 
-                        var tension = (double)(context?.Tension ?? (decimal)0.0);
+                        var tension = context?.Tension ?? 0.0M;
 
                         var name = context?.Name ?? string.Empty;
 
@@ -104,7 +104,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             Axes = {
                 new LinearAxis {
                     Position               = AxisPosition.Bottom,
-                    ExtraGridlines         = new double[] { 0 },
+                    ExtraGridlines         = new double[] { 0.0 },
                     ExtraGridlineThickness = 1,
                     ExtraGridlineColor     = OxyColors.Black,
                     ExtraGridlineStyle     = LineStyle.Solid,
@@ -114,7 +114,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                 },
                 new LinearAxis {
                     Position               = AxisPosition.Left,
-                    ExtraGridlines         = new double[] { 0 },
+                    ExtraGridlines         = new double[] { 0.0 },
                     ExtraGridlineThickness = 1,
                     ExtraGridlineColor     = OxyColors.Black,
                     ExtraGridlineStyle     = LineStyle.Solid,

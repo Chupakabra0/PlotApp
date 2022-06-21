@@ -3,7 +3,7 @@ using PlotApp.MVVM.Models.Dot;
 
 namespace PlotApp.Core.FunctionModifiers {
     internal class ScaleYModifier : IFunctionModifier {
-        public ScaleYModifier(double scaleY, IFunctionModifier? nextModifier = null) {
+        public ScaleYModifier(decimal scaleY, IFunctionModifier? nextModifier = null) {
             this.ScaleY       = scaleY;
             this.NextModifier = nextModifier;
         }
@@ -17,6 +17,6 @@ namespace PlotApp.Core.FunctionModifiers {
         }
 
         public IFunctionModifier? NextModifier { get; set; }
-        public double             ScaleY       { get; set; }
+        public decimal             ScaleY       { get; set; }
     }
 }

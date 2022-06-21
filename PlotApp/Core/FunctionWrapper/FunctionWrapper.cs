@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
 using PlotApp.Core.FunctionModifiers;
+using PlotApp.Core.Utils;
 using PlotApp.MVVM.Models.Dot;
 using PlotApp.MVVM.Models.Function;
 
 namespace PlotApp.Core.FunctionWrapper {
     internal class FunctionWrapper {
-        public FunctionWrapper(Function function, double tension/* = 0.5*/) {
+        public FunctionWrapper(Function function, decimal tension/* = 0.5*/) {
             this.Function = function;
             this.Name     = this.Function.Name;
             this.ScaleX   = this.Function.ScaleX;
@@ -30,12 +31,12 @@ namespace PlotApp.Core.FunctionWrapper {
             this.UpdateAll();
 
             var series = new LineSeries {
-                InterpolationAlgorithm = new CanonicalSpline(this.Tension)
+                InterpolationAlgorithm = new CanonicalSpline(DoubleDecimalCast.CastToDouble(this.Tension))
             };
             var points = this.PointConstuct(this.Function.Points);
 
             foreach (var point in points) {
-                series.Points.Add(new(point.X, point.Y));
+                series.Points.Add(new(DoubleDecimalCast.CastToDouble(point.X), DoubleDecimalCast.CastToDouble(point.Y)));
             }
 
             return series;
@@ -44,11 +45,11 @@ namespace PlotApp.Core.FunctionWrapper {
         public Function Function { get; set; }
 
         public string Name    { get; set; }
-        public double ScaleX  { get; set; }
-        public double ScaleY  { get; set; }
-        public double WrapX   { get; set; }
-        public double WrapY   { get; set; }
-        public double Tension { get; set; }
+        public decimal ScaleX  { get; set; }
+        public decimal ScaleY  { get; set; }
+        public decimal WrapX   { get; set; }
+        public decimal WrapY   { get; set; }
+        public decimal Tension { get; set; }
 
         private List<Point> PointConstuct(IEnumerable<Point> points) {
             //var result = new List<Point>(points);
