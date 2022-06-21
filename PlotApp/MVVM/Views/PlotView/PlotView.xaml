@@ -7,7 +7,7 @@
         xmlns:plotViewModel="clr-namespace:PlotApp.MVVM.ViewModels.PlotViewModel"
         mc:Ignorable="d"
         Title="PlotView"
-        Height="550" Width="979">
+        Height="563" Width="1002">
 
     <Window.DataContext>
         <plotViewModel:PlotViewModel></plotViewModel:PlotViewModel>
@@ -37,7 +37,8 @@
 
                             <Grid Width="250"
                                   HorizontalAlignment="Center"
-                                  VerticalAlignment="Center">
+                                  VerticalAlignment="Center"
+                                  Margin="10">
 
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
