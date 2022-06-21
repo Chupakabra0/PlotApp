@@ -36,25 +36,26 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
 
         public ObservableCollection<Point> Points { get; set; } = new();
 
-        private Function   FunctionWrapper   => new($"F(x) = {this.FunctionString}");
-        private Func<double, double> Function =>
-            x => new Expression($"F({x.ToString(CultureInfo.InvariantCulture)})", this.FunctionWrapper).calculate();
+        private Function functionWrapper_ => new($"F(x) = {this.FunctionString}");
 
-        private double LowLimitX  => double.Parse(this.LowLimitXString,  CultureInfo.InvariantCulture);
-        private double HighLimitX => double.Parse(this.HighLimitXString, CultureInfo.InvariantCulture);
-        private double LowLimitY  => double.Parse(this.LowLimitYString,  CultureInfo.InvariantCulture);
-        private double HighLimitY => double.Parse(this.HighLimitYString, CultureInfo.InvariantCulture);
-        private double Step       => double.Parse(this.StepString,       CultureInfo.InvariantCulture);
+        private Func<double, double> function_ =>
+            x => new Expression($"F({x.ToString(CultureInfo.InvariantCulture)})", this.functionWrapper_).calculate();
+
+        private double lowLimitX_  => double.Parse(this.LowLimitXString,  CultureInfo.InvariantCulture);
+        private double highLimitX_ => double.Parse(this.HighLimitXString, CultureInfo.InvariantCulture);
+        private double lowLimitY_  => double.Parse(this.LowLimitYString,  CultureInfo.InvariantCulture);
+        private double highLimitY_ => double.Parse(this.HighLimitYString, CultureInfo.InvariantCulture);
+        private double step_       => double.Parse(this.StepString,       CultureInfo.InvariantCulture);
 
         private bool CheckAllString() => 
             DoubleValidation.IsDouble(this.LowLimitXString) && DoubleValidation.IsDouble(this.HighLimitXString) 
             && DoubleValidation.IsDouble(this.LowLimitYString) && DoubleValidation.IsDouble(this.HighLimitYString)
             && DoubleValidation.IsDouble(this.StepString)
-            && this.FunctionWrapper.checkSyntax();
+            && this.functionWrapper_.checkSyntax();
 
         private void FillPoints() {
-            var pb = new PointsBuilder(this.Function, new(this.LowLimitX, this.HighLimitX),
-                                       new(this.LowLimitY, this.HighLimitY), this.Step);
+            var pb = new PointsBuilder(this.function_, new(this.lowLimitX_, this.highLimitX_),
+                                       new(this.lowLimitY_, this.highLimitY_), this.step_);
 
             this.Points = pb.BuildPoints();
         }
