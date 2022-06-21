@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
@@ -30,11 +31,11 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
 
         public ObservableCollection<Point> Points { get; set; } = new();
 
-        public string ScaleXString { get; set; } = "1.0";
-        public string ScaleYString { get; set; } = "1.0";
-        public string WrapXString  { get; set; } = "0.0";
-        public string WrapYString  { get; set; } = "0.0";
-        public string Name         { get; set; } = "Plot";
+        public string  ScaleXString { get; set; } = "1.0";
+        public string  ScaleYString { get; set; } = "1.0";
+        public string  WrapXString  { get; set; } = "0.0";
+        public string  WrapYString  { get; set; } = "0.0";
+        public string  Name         { get; set; } = "Plot";
         public decimal Tension      { get; set; } = (decimal)0.0;
 
         public ICommand SaveToFileCommand =>

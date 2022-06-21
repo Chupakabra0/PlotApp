@@ -76,13 +76,15 @@
 
                         <Slider x:Name="TensionSlider" MinWidth="150"
                                 Minimum="0.0" Maximum="1.0"
+                                IsSnapToTickEnabled="True" TickFrequency="0.05" TickPlacement="BottomRight"
                                 SmallChange="0.05" LargeChange="0.1"
                                 Value="{Binding Path=Tension, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </Slider>
 
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"
                                  FontSize="20"
-                                 Text="{Binding ElementName=TensionSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}">
+                                 Text="{Binding ElementName=TensionSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"
+                                 Margin="0, -10, 0, 0">
                         </TextBlock>
 
                         <!--<ComboBox Style="{StaticResource DefaultComboBox}"
