@@ -8,7 +8,7 @@
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="FillFunctionView" Height="366" Width="649"
-        WindowStyle="ToolWindow">
+        ResizeMode="CanMinimize">
 
     <Window.DataContext>
         <fillFunctionViewModel:FillFunctionViewModel></fillFunctionViewModel:FillFunctionViewModel>
@@ -144,12 +144,12 @@
 
                     <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
                              VerticalAlignment="Center"
-                             Text="{Binding Path=LowLimitX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                             Text="{Binding Path=LowLimitXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
                     <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
                              VerticalAlignment="Center"
-                             Text="{Binding Path=HighLimitX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                             Text="{Binding Path=HighLimitXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
                 </StackPanel>
@@ -165,12 +165,12 @@
 
                     <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
                              VerticalAlignment="Center"
-                             Text="{Binding Path=LowLimitY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                             Text="{Binding Path=LowLimitYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
                     <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
                              VerticalAlignment="Center"
-                             Text="{Binding Path=HighLimitY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                             Text="{Binding Path=HighLimitYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
                 </StackPanel>
@@ -183,7 +183,7 @@
                 </TextBlock>
 
                 <TextBox Style="{StaticResource SmallTextBox}"
-                         Text="{Binding Path=Step, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                         Text="{Binding Path=StepString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
 
             </StackPanel>

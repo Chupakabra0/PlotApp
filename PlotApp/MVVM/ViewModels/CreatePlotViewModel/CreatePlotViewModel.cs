@@ -34,7 +34,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
         public double ScaleY { get; set; } = 1.0;
         public double WrapX  { get; set; } = 0.0;
         public double WrapY  { get; set; } = 0.0;
-        public string Name   { get; set; } = string.Empty;
+        public string Name   { get; set; } = "Plot";
 
         public ICommand SaveToFileCommand =>
             new RelayCommand(_ => {

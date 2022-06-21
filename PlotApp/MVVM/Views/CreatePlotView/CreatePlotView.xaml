@@ -6,8 +6,8 @@
         xmlns:collections="clr-namespace:System.Collections;assembly=System.Runtime"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         xmlns:createPlotViewModel="clr-namespace:PlotApp.MVVM.ViewModels.CreatePlotViewModel"
-        xmlns:validations="clr-namespace:PlotApp.Core.Validations"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:controlValidations="clr-namespace:PlotApp.Core.Validations.ControlValidations"
         mc:Ignorable="d" Title="MainWindow"
         Height="550" Width="979">
 
@@ -30,7 +30,7 @@
                   x:Name="PointsGrid" Margin="20">
 
             <DataGrid.RowValidationRules>
-                <validations:PointValidation ValidationStep="UpdatedValue"></validations:PointValidation>
+                <controlValidations:PointValidation ValidationStep="UpdatedValue"></controlValidations:PointValidation>
             </DataGrid.RowValidationRules>
 
             <DataGrid.Columns>
