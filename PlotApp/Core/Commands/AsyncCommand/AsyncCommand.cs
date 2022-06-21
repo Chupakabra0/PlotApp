@@ -42,8 +42,8 @@ namespace PlotApp.Core.Commands.AsyncCommand {
             this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        bool ICommand.CanExecute(object parameter) => this.CanExecute();
-        void ICommand.Execute(object    parameter) => this.ExecuteAsync().FireAndForgetSafeAsync();
+        bool ICommand.CanExecute(object? parameter) => this.CanExecute();
+        void ICommand.Execute(object?    parameter) => this.ExecuteAsync().FireAndForgetSafeAsync();
 
         private bool isExecuting;
 

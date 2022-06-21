@@ -25,13 +25,13 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
 
         public ICommand EvaluateCommand =>
             new RelayCommand(_ => {
-                if (this.CheckAllString()) {
+                if (this.CheckAllStrings()) {
                     this.FillPoints();
                 }
                 else {
                     MessageBox.Show("Wrong format", "Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
                 }
-            }, _ => this.CheckAllString());
+            }, _ => this.CheckAllStrings());
 
 
         public ObservableCollection<Point> Points { get; set; } = new();
@@ -47,7 +47,7 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
         private double highLimitY_ => double.Parse(this.HighLimitYString, CultureInfo.InvariantCulture);
         private double step_       => double.Parse(this.StepString,       CultureInfo.InvariantCulture);
 
-        private bool CheckAllString() => 
+        private bool CheckAllStrings() => 
             DoubleValidation.IsDouble(this.LowLimitXString) && DoubleValidation.IsDouble(this.HighLimitXString) 
             && DoubleValidation.IsDouble(this.LowLimitYString) && DoubleValidation.IsDouble(this.HighLimitYString)
             && DoubleValidation.IsDouble(this.StepString)

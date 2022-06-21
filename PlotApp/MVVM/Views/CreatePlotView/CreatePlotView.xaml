@@ -74,8 +74,8 @@
                         </TextBlock>
 
                         <TextBox Style="{StaticResource SmallTextBox}"
-                                 HorizontalContentAlignment="Center" VerticalAlignment="Center"
-                                 Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                 VerticalAlignment="Center"
+                                 Text="{Binding Path=ScaleXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
@@ -86,9 +86,9 @@
                         <TextBlock Text="Scale Y">
                         </TextBlock>
 
-                        <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
+                        <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
-                                 Text="{Binding Path=ScaleY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                 Text="{Binding Path=ScaleYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
@@ -99,9 +99,9 @@
                         <TextBlock Text="Wrap X">
                         </TextBlock>
 
-                        <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
+                        <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
-                                 Text="{Binding Path=WrapX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                 Text="{Binding Path=WrapXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
@@ -112,9 +112,9 @@
                         <TextBlock Text="Wrap Y">
                         </TextBlock>
 
-                        <TextBox Style="{StaticResource SmallTextBox}" HorizontalContentAlignment="Center"
+                        <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
-                                 Text="{Binding Path=WrapY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                 Text="{Binding Path=WrapYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
                     </StackPanel>
@@ -145,7 +145,9 @@
                 <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center"
                             VerticalAlignment="Center">
 
-                    <Button Style="{StaticResource DefaultButton}" IsDefault="True" Content="Done" Command="{Binding}">
+                    <Button Style="{StaticResource DefaultButton}"
+                            IsDefault="True" Content="Done"
+                            Command="{Binding DoneCommand}">
                         <b:Interaction.Triggers>
                             <b:EventTrigger EventName="Click">
                                 <!--<b:CallMethodAction MethodName="Close"
