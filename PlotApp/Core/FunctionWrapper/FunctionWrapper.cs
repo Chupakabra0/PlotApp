@@ -31,9 +31,11 @@ namespace PlotApp.Core.FunctionWrapper {
             this.UpdateAll();
 
             var series = new LineSeries {
+                //LineStyle  = LineStyle.None,
+                //MarkerType = MarkerType.Circle,
                 InterpolationAlgorithm = new CanonicalSpline(DoubleDecimalCast.CastToDouble(this.Tension))
             };
-            var points = this.PointConstuct(this.Function.Points);
+            var points = this.PointConstruct(this.Function.Points);
 
             foreach (var point in points) {
                 series.Points.Add(new(DoubleDecimalCast.CastToDouble(point.X), DoubleDecimalCast.CastToDouble(point.Y)));
@@ -51,7 +53,7 @@ namespace PlotApp.Core.FunctionWrapper {
         public decimal WrapY   { get; set; }
         public decimal Tension { get; set; }
 
-        private List<Point> PointConstuct(IEnumerable<Point> points) {
+        private List<Point> PointConstruct(IEnumerable<Point> points) {
             //var result = new List<Point>(points);
 
             var enumerable = points.ToList();
