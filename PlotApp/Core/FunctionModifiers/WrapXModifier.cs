@@ -10,7 +10,7 @@ namespace PlotApp.Core.FunctionModifiers {
 
         public List<Point> Modify(List<Point> points) {
             foreach (var point in points) {
-                point.Y += this.WrapX;
+                point.X += this.WrapX;
             }
 
             return this.NextModifier?.Modify(points) ?? points;
