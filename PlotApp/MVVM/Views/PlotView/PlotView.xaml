@@ -48,8 +48,10 @@
                                 <TextBlock Grid.Column="0"
                                            Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            FontSize="20"
+                                           Margin="10"
                                            HorizontalAlignment="Left"
-                                           VerticalAlignment="Center">
+                                           VerticalAlignment="Center"
+                                           TextWrapping="Wrap">
                                 </TextBlock>
 
                                 <StackPanel Grid.Column="1"
