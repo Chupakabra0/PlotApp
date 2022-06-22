@@ -7,6 +7,7 @@ using System.Windows.Input;
 using OxyPlot;
 using OxyPlot.Axes;
 using PlotApp.Core.Commands.RelayCommand;
+using PlotApp.Core.FunctionType;
 using PlotApp.Core.FunctionWrapper;
 using PlotApp.MVVM.Models.Function;
 using PlotApp.MVVM.Views.CreatePlotView;
@@ -35,11 +36,12 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                     var wrapY = context?.WrapY ?? 0.0M;
 
                     var tension = context?.Tension ?? 0.0M;
+                    var type    = context?.Type    ?? FunctionType.Point;
 
                     var name  = context?.Name ?? string.Empty;
 
                     this.Functions.Add(new FunctionWrapper(new Function(
-                        new List<Point>(points), scaleX, scaleY, wrapX, wrapY, name), tension
+                        new List<Point>(points), scaleX, scaleY, wrapX, wrapY, name), type, tension
                     ));
 
                     this.UpdateAllPlots();
@@ -68,7 +70,8 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                 if (o is FunctionWrapper plot) {
                     var window = new CreatePlotView {
                         DataContext = new CreatePlotViewModel.CreatePlotViewModel(
-                             plot.Function.Points, plot.ScaleX, plot.ScaleY, plot.WrapX, plot.WrapY, plot.Tension, plot.Name
+                             plot.Function.Points, plot.ScaleX, plot.ScaleY,
+                             plot.WrapX, plot.WrapY, plot.Tension, plot.Type, plot.Name
                         )
                     };
 
@@ -84,11 +87,12 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                         var wrapY = context?.WrapY ?? 0.0M;
 
                         var tension = context?.Tension ?? 0.0M;
+                        var type    = context?.Type    ?? FunctionType.Point;
 
                         var name = context?.Name ?? string.Empty;
 
                         this.EditPlot(plot, new FunctionWrapper(new Function(
-                            new List<Point>(points), scaleX, scaleY, wrapX, wrapY, name), tension
+                            new List<Point>(points), scaleX, scaleY, wrapX, wrapY, name), type, tension
                         ));
 
                         this.UpdateAllPlots();

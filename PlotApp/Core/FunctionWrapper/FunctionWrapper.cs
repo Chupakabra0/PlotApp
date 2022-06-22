@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
 using PlotApp.Core.FunctionModifiers;
+using PlotApp.Core.SeriesConfigurators;
 using PlotApp.Core.Utils;
 using PlotApp.MVVM.Models.Dot;
 using PlotApp.MVVM.Models.Function;
 
+using FT = PlotApp.Core.FunctionType.FunctionType;
+
 namespace PlotApp.Core.FunctionWrapper {
     internal class FunctionWrapper {
-        public FunctionWrapper(Function function, decimal tension/* = 0.5*/) {
+        public FunctionWrapper(Function function, FT type = FT.Line, decimal tension = 0.5M) {
             this.Function = function;
             this.Name     = this.Function.Name;
             this.ScaleX   = this.Function.ScaleX;
@@ -20,6 +20,7 @@ namespace PlotApp.Core.FunctionWrapper {
             this.WrapX    = this.Function.WrapX;
             this.WrapY    = this.Function.WrapY;
             this.Tension  = tension;
+            this.Type     = type;
 
             this.modifier_ = new ScaleXModifier(this.ScaleX,
                 new ScaleYModifier(this.ScaleY,
@@ -30,11 +31,18 @@ namespace PlotApp.Core.FunctionWrapper {
         public LineSeries GetLineSeries() {
             this.UpdateAll();
 
+            ILineSeriesConfigurator? configurator
+                = this.Type switch {
+                    FT.Line  => null,
+                    FT.Point => new RemoveLineConfigurator(new AddCirclesConfigurator()),
+                    _        => null
+                };
+
             var series = new LineSeries {
-                //LineStyle  = LineStyle.None,
-                //MarkerType = MarkerType.Circle,
                 InterpolationAlgorithm = new CanonicalSpline(DoubleDecimalCast.CastToDouble(this.Tension))
             };
+            series = configurator?.Config(series) ?? series;
+
             var points = this.PointConstruct(this.Function.Points);
 
             foreach (var point in points) {
@@ -46,12 +54,13 @@ namespace PlotApp.Core.FunctionWrapper {
 
         public Function Function { get; set; }
 
-        public string Name    { get; set; }
+        public string  Name    { get; set; }
         public decimal ScaleX  { get; set; }
         public decimal ScaleY  { get; set; }
         public decimal WrapX   { get; set; }
         public decimal WrapY   { get; set; }
         public decimal Tension { get; set; }
+        public FT      Type    { get; set; }
 
         private List<Point> PointConstruct(IEnumerable<Point> points) {
             //var result = new List<Point>(points);

@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Microsoft.Win32;
 using PlotApp.Core.Commands.RelayCommand;
 using PlotApp.Core.DataManipulators.IDataManipulator;
+using PlotApp.Core.FunctionType;
 using PlotApp.Core.Utils;
 using PlotApp.Core.Validations.ModelValidations;
 using PlotApp.MVVM.Views.FillFunctionView;
@@ -20,7 +21,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
             
         }
 
-        public CreatePlotViewModel(List<Point> points, decimal scaleX, decimal scaleY, decimal wrapX, decimal wrapY, decimal tension, string name) {
+        public CreatePlotViewModel(List<Point> points, decimal scaleX, decimal scaleY, decimal wrapX, decimal wrapY, decimal tension, FunctionType type, string name) {
             this.Points       = new(points);
             this.ScaleXString = scaleX.ToString(CultureInfo.InvariantCulture);
             this.ScaleYString = scaleY.ToString(CultureInfo.InvariantCulture);
@@ -28,6 +29,11 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
             this.WrapYString  = wrapY.ToString(CultureInfo.InvariantCulture);
             this.Name         = name;
             this.Tension      = tension;
+            this.IsGraph      = type switch {
+                FunctionType.Line  => true,
+                FunctionType.Point => false,
+                _                  => false
+            };
         }
 
         public ObservableCollection<Point> Points { get; set; } = new();
@@ -38,6 +44,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
         public string  WrapYString  { get; set; } = "0.0";
         public string  Name         { get; set; } = "Plot";
         public decimal Tension      { get; set; } = 0.0M;
+        public bool    IsGraph      { get; set; } = false;
 
         public ICommand SaveToFileCommand =>
             new RelayCommand(_ => {
@@ -98,6 +105,9 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
             => DoubleDecimalCast.CastToDecimal(double.Parse(this.WrapXString,  CultureInfo.InvariantCulture));
         public decimal WrapY
             => DoubleDecimalCast.CastToDecimal(double.Parse(this.WrapYString,  CultureInfo.InvariantCulture));
+
+        public FunctionType Type
+            => this.IsGraph ? FunctionType.Line : FunctionType.Point;
 
         private readonly IDataManipulator dataManipulator_ = new JsonDataManipulator();
 
