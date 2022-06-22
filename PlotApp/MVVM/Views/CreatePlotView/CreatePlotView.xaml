@@ -88,6 +88,7 @@
                                 <Slider x:Name="TensionSlider" MinWidth="150" Minimum="0.0" Maximum="1.0"
                                         IsSnapToTickEnabled="True" TickFrequency="0.05" TickPlacement="BottomRight"
                                         SmallChange="0.05" LargeChange="0.1"
+                                        IsEnabled="{Binding Path=IsGraph, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                                         Value="{Binding Path=Tension, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 </Slider>
 
