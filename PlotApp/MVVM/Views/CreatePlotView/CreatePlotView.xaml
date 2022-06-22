@@ -159,9 +159,9 @@
                             Command="{Binding Path=AddFromFileCommand}">
                     </Button>
 
-                    <!--<Button Style="{StaticResource DefaultButton}" Content="Fill by F(x)"
+                    <Button Style="{StaticResource DefaultButton}" Content="Fill by F(x)"
                             Command="{Binding Path=FillFunctionCommand}">
-                    </Button>-->
+                    </Button>
 
                 </StackPanel>
 
