@@ -106,9 +106,10 @@
 
 |           $\beta_{x} = 0$            |           $\beta_{x} = 10$           |          $\beta_{x} = -10$           |
 |:------------------------------------:|:------------------------------------:|:------------------------------------:|
-| ![Pasted image 20220622153624](https://user-images.githubusercontent.com/47476146/175051496-42bdc189-cba6-44b3-b714-1257c20602e0.png) | ![Pasted image 20220622153648](https://user-images.githubusercontent.com/47476146/175051540-d07bc886-db1b-4580-a595-c9c65fad1a4e.png) | ![[Pasted image 20220622153734.png]] |
+| ![Pasted image 20220622153624](https://user-images.githubusercontent.com/47476146/175051496-42bdc189-cba6-44b3-b714-1257c20602e0.png) | ![Pasted image 20220622153648](https://user-images.githubusercontent.com/47476146/175051540-d07bc886-db1b-4580-a595-c9c65fad1a4e.png) | ![Pasted image 20220622153734](https://user-images.githubusercontent.com/47476146/175059265-78ff50da-b0e8-45e9-aaa9-df04dacbbc12.png) |
 
 Результаты для оси ординат:
+
 
 |           $\beta_{y} = 0$            |           $\beta_{y} = 10$            |          $\beta_{y} = -10$           |
 |:------------------------------------:|:------------------------------------:|:------------------------------------:|
