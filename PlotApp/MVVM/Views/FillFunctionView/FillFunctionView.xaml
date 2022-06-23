@@ -124,16 +124,22 @@
         <StackPanel Orientation="Vertical"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+            <!--<StackPanel Orientation="Horizontal">-->
 
-                <TextBlock Text="Function">
-                </TextBlock>
 
-                <TextBox Style="{StaticResource DefaultTextBox}"
-                         Text="{Binding Path=FunctionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                </TextBox>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
 
-            </StackPanel>
+                    <TextBlock Text="Function" FontSize="12">
+                    </TextBlock>
+
+                    <TextBox Style="{StaticResource DefaultTextBox}"
+                         Text="{Binding Path=FunctionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </TextBox>
+
+                </StackPanel>
+
+            <!--</StackPanel>-->
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
 
@@ -195,7 +201,7 @@
                     HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <Button Style="{StaticResource DefaultButton}"
-                    Content="Evaluate" IsDefault="True"
+                    Content="Evaluate data" IsDefault="True"
                     Command="{Binding Path=EvaluateCommand}">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="Click">
@@ -205,6 +211,22 @@
                         <b:ChangePropertyAction PropertyName="DialogResult"
                                                 TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
                                                 Value="true">
+                        </b:ChangePropertyAction>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </Button>
+
+            <Button Style="{StaticResource DefaultButton}"
+                    Content="Fill by my function"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="Click">
+                        <!--<b:CallMethodAction MethodName="Close"
+                                            TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
+                        </b:CallMethodAction>-->
+                        <b:ChangePropertyAction PropertyName="DialogResult"
+                                                TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
+                                                Value="false">
                         </b:ChangePropertyAction>
                     </b:EventTrigger>
                 </b:Interaction.Triggers>

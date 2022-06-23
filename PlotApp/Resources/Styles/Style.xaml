@@ -47,8 +47,8 @@
         <Setter Property="FontWeight" Value="Bold"></Setter>
         <Setter Property="FontSize" Value="18"></Setter>
 
-        <Setter Property="BorderThickness" Value="0.5"></Setter>
-        <Setter Property="BorderBrush" Value="{StaticResource AppGreenBrush}"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource AppDarkGreenBrush}"></Setter>
 
         <Setter Property="Template">
 
@@ -78,6 +78,42 @@
 
                     <ControlTemplate.Triggers>
 
+                        <Trigger Property="IsEnabled" Value="True">
+
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppGreenColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test1"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test2"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test3"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test4"></RemoveStoryboard>
+                            </Trigger.EnterActions>
+
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppGrayColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test1"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test2"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test3"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test4"></RemoveStoryboard>
+                            </Trigger.ExitActions>
+
+                        </Trigger>
+
                         <Trigger Property="IsEnabled" Value="False">
 
                             <Trigger.EnterActions>
@@ -90,6 +126,10 @@
                                         </ColorAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test1"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test2"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test3"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test4"></RemoveStoryboard>
                             </Trigger.EnterActions>
 
                             <Trigger.ExitActions>
@@ -102,12 +142,16 @@
                                         </ColorAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test1"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test2"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test3"></RemoveStoryboard>
+                                <RemoveStoryboard BeginStoryboardName="Test4"></RemoveStoryboard>
                             </Trigger.ExitActions>
 
                         </Trigger>
 
                         <EventTrigger RoutedEvent="MouseEnter">
-                            <BeginStoryboard>
+                            <BeginStoryboard Name="Test1">
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource AppDarkGreenColor}"
                                                     Duration="0:0:0.25"
@@ -119,7 +163,7 @@
                         </EventTrigger>
 
                         <EventTrigger RoutedEvent="MouseLeave">
-                            <BeginStoryboard>
+                            <BeginStoryboard Name="Test2">
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource AppGreenColor}"
                                                     Duration="0:0:0.25"
@@ -131,7 +175,7 @@
                         </EventTrigger>
 
                         <EventTrigger RoutedEvent="PreviewMouseDown">
-                            <BeginStoryboard>
+                            <BeginStoryboard Name="Test3">
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource AppGreenColor}"
                                                     Duration="0:0:0.1"
@@ -143,7 +187,7 @@
                         </EventTrigger>
 
                         <EventTrigger RoutedEvent="PreviewMouseUp">
-                            <BeginStoryboard>
+                            <BeginStoryboard Name="Test4">
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource AppDarkGreenColor}"
                                                     Duration="0:0:0.1"
