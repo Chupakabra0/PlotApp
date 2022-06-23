@@ -19,7 +19,7 @@ using Point = PlotApp.MVVM.Models.Dot.Point;
 namespace PlotApp.MVVM.ViewModels.PlotViewModel {
     internal class PlotViewModel : BaseViewModel.BaseViewModel {
         public PlotViewModel() {
-            
+            this.DrawCenter();
         }
 
         public ICommand AddPlotCommand => 
@@ -107,15 +107,6 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
 
         public PlotModel Model { get; set;  } = new PlotModel {
             PlotType = PlotType.Cartesian,
-            Series = { 
-                new LineSeries {
-                    Points = { new DataPoint(0, 0) },
-                    LineStyle = LineStyle.None,
-                    MarkerType = MarkerType.Circle,
-                    Color = OxyColors.Red,
-                    Title = "O"
-                }
-            },
             Axes = {
                 new LinearAxis {
                     Position               = AxisPosition.Bottom,
@@ -161,16 +152,26 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
         }
 
         private void UpdateAllPlots() {
-            //this.Model.Series.Clear();
-            for (var i = 1; i < this.Model.Series.Count; i++) {
-                this.Model.Series.RemoveAt(i);
-            }
+            this.Model.Series.Clear();
 
             foreach (var f in this.Functions) {
                 this.Model.Series.Add(f.GetLineSeries());
             }
+            this.DrawCenter();
 
             this.Model.PlotView.InvalidatePlot();
         }
+
+        private void DrawCenter() {
+            this.Model.Series.Add(this.center_);
+        }
+
+        private LineSeries center_ = new LineSeries {
+            Points     = { new DataPoint(0, 0) },
+            LineStyle  = LineStyle.None,
+            MarkerType = MarkerType.Circle,
+            Color      = OxyColors.Red,
+            Title      = "O"
+        };
     }
 }
