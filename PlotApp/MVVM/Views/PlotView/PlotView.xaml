@@ -29,6 +29,8 @@
 
             <ListView ItemsSource="{Binding Path=Functions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Visibility="{Binding Path=Functions.Count, Converter={StaticResource Int32ToVisibilityConverter}}"
+                      IsManipulationEnabled="False" Focusable="False"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       MaxHeight="400">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -36,6 +38,11 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Margin="20">-->
+                        <Grid>
+
+                            <Border BorderBrush="{StaticResource AppBlackBrush}"
+                                    BorderThickness="1">
+                            </Border>
 
                             <Grid Width="250"
                                   HorizontalAlignment="Center"
@@ -46,6 +53,8 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
+
+
 
                                 <TextBlock Grid.Column="0"
                                            Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -59,21 +68,33 @@
                                 <StackPanel Grid.Column="1"
                                             Orientation="Horizontal"
                                             HorizontalAlignment="Right"
-                                            VerticalAlignment="Top">
+                                            VerticalAlignment="Center">
 
-                                    <Button Content="Edit"
-                                            Style="{StaticResource DefaultButton}"
+                                    <!--<Button Content="Edit"
                                             HorizontalAlignment="Right"
                                             Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.EditPlotCommand}"
                                             CommandParameter="{Binding Path=.}">
-                                    </Button>
+                                    </Button>-->
 
-                                    <Button Content="Del"
-                                            Style="{StaticResource DefaultButton}"
+                                    <!--<Button Content="Del"
                                             HorizontalAlignment="Right"
                                             Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.DeletePlotCommand}"
-                                            CommandParameter="{Binding Path=.}">
+                                            CommandParameter="{Binding Path=.}">-->
 
+                                    <!--</Button>-->
+
+                                    <Button HorizontalAlignment="Right" VerticalAlignment="Center"
+                                           HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                           Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.EditPlotCommand}"
+                                           CommandParameter="{Binding Path=.}"
+                                           Style="{StaticResource EditButton}">
+                                    </Button>
+
+                                    <Button HorizontalAlignment="Right" VerticalAlignment="Center"
+                                           HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                           Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.DeletePlotCommand}"
+                                           CommandParameter="{Binding Path=.}"
+                                           Style="{StaticResource TrashButton}">
                                     </Button>
 
                                 </StackPanel>
@@ -153,11 +174,14 @@
                             </StackPanel>
 
 
-                            --><!--<TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                            </TextBox>--><!--
+                            -->
+                            <!--<TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBox>-->
+                            <!--
 
                             </StackPanel>-->
-                        <!--</StackPanel>-->
+                            <!--</StackPanel>-->
+                        </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

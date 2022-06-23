@@ -25,4 +25,7 @@
     <Color x:Key="AppGrayColor">#A6A6A6</Color>
     <SolidColorBrush x:Key="AppGrayBrush" Color="{StaticResource AppGrayColor}"></SolidColorBrush>
 
+    <Color x:Key="AppDarkGrayColor">#323232</Color>
+    <SolidColorBrush x:Key="AppDarkGrayBrush" Color="{StaticResource AppDarkGrayColor}"></SolidColorBrush>
+
 </ResourceDictionary>
