@@ -5,13 +5,15 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using OxyPlot;
+using OxyPlot.Annotations;
 using OxyPlot.Axes;
+using OxyPlot.Series;
 using PlotApp.Core.Commands.RelayCommand;
 using PlotApp.Core.FunctionType;
 using PlotApp.Core.FunctionWrapper;
 using PlotApp.MVVM.Models.Function;
 using PlotApp.MVVM.Views.CreatePlotView;
-
+using FontWeights = OxyPlot.FontWeights;
 using Point = PlotApp.MVVM.Models.Dot.Point;
 
 namespace PlotApp.MVVM.ViewModels.PlotViewModel {
@@ -105,26 +107,37 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
 
         public PlotModel Model { get; set;  } = new PlotModel {
             PlotType = PlotType.Cartesian,
+            Series = { 
+                new LineSeries {
+                    Points = { new DataPoint(0, 0) },
+                    LineStyle = LineStyle.None,
+                    MarkerType = MarkerType.Circle,
+                    Color = OxyColors.Red,
+                    Title = "O"
+                }
+            },
             Axes = {
                 new LinearAxis {
                     Position               = AxisPosition.Bottom,
-                    ExtraGridlines         = new double[] { 0.0 },
-                    ExtraGridlineThickness = 1,
+                    ExtraGridlines         = new[]{ 0.0 },
+                    ExtraGridlineThickness = 3,
                     ExtraGridlineColor     = OxyColors.Black,
                     ExtraGridlineStyle     = LineStyle.Solid,
                     Title                  = "X",
                     MajorGridlineColor     = OxyColors.LightGray,
-                    MajorGridlineStyle     = LineStyle.Dot
+                    MajorGridlineStyle     = LineStyle.Dot,
+                    MajorGridlineThickness = 1
                 },
                 new LinearAxis {
                     Position               = AxisPosition.Left,
-                    ExtraGridlines         = new double[] { 0.0 },
-                    ExtraGridlineThickness = 1,
+                    ExtraGridlines         = new[]{ 0.0 },
+                    ExtraGridlineThickness = 3,
                     ExtraGridlineColor     = OxyColors.Black,
                     ExtraGridlineStyle     = LineStyle.Solid,
                     Title                  = "Y",
                     MajorGridlineColor     = OxyColors.LightGray,
-                    MajorGridlineStyle     = LineStyle.Dot
+                    MajorGridlineStyle     = LineStyle.Dot,
+                    MajorGridlineThickness = 1
                 }
             }
         };
@@ -148,7 +161,10 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
         }
 
         private void UpdateAllPlots() {
-            this.Model.Series.Clear();
+            //this.Model.Series.Clear();
+            for (var i = 1; i < this.Model.Series.Count; i++) {
+                this.Model.Series.RemoveAt(i);
+            }
 
             foreach (var f in this.Functions) {
                 this.Model.Series.Add(f.GetLineSeries());
