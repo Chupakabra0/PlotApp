@@ -8,7 +8,8 @@
         xmlns:controlValidations="clr-namespace:PlotApp.Core.Validations.ControlValidations"
         mc:Ignorable="d" Title="MainWindow"
         Height="563" Width="1002"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanMinimize"
+        Style="{StaticResource DefaultWindow}">
 
     <Window.DataContext>
         <createPlotViewModel:CreatePlotViewModel></createPlotViewModel:CreatePlotViewModel>
