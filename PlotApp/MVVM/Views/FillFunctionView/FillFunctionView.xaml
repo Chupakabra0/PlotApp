@@ -201,7 +201,7 @@
                     HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <Button Style="{StaticResource DefaultButton}"
-                    Content="Evaluate data" IsDefault="True"
+                    Content="Calculate data" IsDefault="True"
                     Command="{Binding Path=EvaluateCommand}">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="Click">
@@ -218,7 +218,7 @@
 
             <Button Style="{StaticResource DefaultButton}"
                     Content="Fill by my function"
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                    Command="{Binding Path=FillByMyFunctionCommand}">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="Click">
                         <!--<b:CallMethodAction MethodName="Close"
@@ -226,7 +226,7 @@
                         </b:CallMethodAction>-->
                         <b:ChangePropertyAction PropertyName="DialogResult"
                                                 TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
-                                                Value="false">
+                                                Value="true">
                         </b:ChangePropertyAction>
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
