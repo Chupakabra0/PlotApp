@@ -27,7 +27,8 @@
                     HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <ListView ItemsSource="{Binding Path=Functions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Visibility="{Binding Path=Functions.Count, Converter={StaticResource Int32ToVisibilityConverter}}">
+                      Visibility="{Binding Path=Functions.Count, Converter={StaticResource Int32ToVisibilityConverter}}"
+                      MaxHeight="400">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <!--<StackPanel Orientation="Vertical"
