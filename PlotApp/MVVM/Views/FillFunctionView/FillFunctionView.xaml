@@ -6,7 +6,7 @@
         xmlns:fillFunctionViewModel="clr-namespace:PlotApp.MVVM.ViewModels.FillFunctionViewModel"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="FillFunctionView" Height="366" Width="649"
+        Title="Fill" Height="366" Width="649"
         ResizeMode="CanMinimize"
         Style="{StaticResource DefaultWindow}">
 
@@ -125,7 +125,8 @@
                     HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <!--<StackPanel Orientation="Horizontal">-->
-            <TextBlock Text="Function" FontSize="12"></TextBlock>
+            <TextBlock Text="Function" FontSize="12"
+                       Visibility="{Binding ElementName=CheckBox, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"></TextBlock>
 
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Center">
@@ -136,7 +137,8 @@
                     <TextBox Style="{StaticResource DefaultTextBox}"
                          Text="{Binding Path=FunctionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          HorizontalAlignment="Center" VerticalAlignment="Center"
-                         IsEnabled="{Binding ElementName=CheckBox, Path=IsChecked}">
+                         IsEnabled="{Binding ElementName=CheckBox, Path=IsChecked}"
+                         Visibility="{Binding ElementName=CheckBox, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}">
                     </TextBox>
 
                 </StackPanel>
@@ -172,7 +174,7 @@
 
             </StackPanel>
 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+            <!--<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
 
                 <TextBlock Text="y">
                 </TextBlock>
@@ -189,9 +191,9 @@
                              Text="{Binding Path=HighLimitYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </TextBox>
 
-                </StackPanel>
+                </StackPanel>-->
 
-            </StackPanel>
+            <!--</StackPanel>-->
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
 

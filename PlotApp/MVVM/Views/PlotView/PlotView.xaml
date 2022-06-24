@@ -6,7 +6,7 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:plotViewModel="clr-namespace:PlotApp.MVVM.ViewModels.PlotViewModel"
         mc:Ignorable="d"
-        Title="PlotView"
+        Title="Chart"
         Height="563" Width="1002"
         Style="{StaticResource DefaultWindow}">
 
@@ -25,14 +25,14 @@
         <Grid Margin="30">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <oxy:PlotView Grid.Column="0" Model="{Binding Path=Model, Mode=TwoWay}">
+            <oxy:PlotView Grid.Column="1" Model="{Binding Path=Model, Mode=TwoWay}">
             </oxy:PlotView>
 
-            <StackPanel Grid.Column="1" Orientation="Vertical"
+            <StackPanel Grid.Column="0" Orientation="Vertical"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <ListView ItemsSource="{Binding Path=Functions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"

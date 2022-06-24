@@ -183,7 +183,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             Points     = { new DataPoint(0, 0) },
             LineStyle  = LineStyle.None,
             MarkerType = MarkerType.Circle,
-            Color      = OxyColors.Red,
+            Color      = OxyColors.BlueViolet,
             Title      = "O"
         };
     }

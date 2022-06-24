@@ -6,7 +6,8 @@
         xmlns:createPlotViewModel="clr-namespace:PlotApp.MVVM.ViewModels.CreatePlotViewModel"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:controlValidations="clr-namespace:PlotApp.Core.Validations.ControlValidations"
-        mc:Ignorable="d" Title="MainWindow"
+        mc:Ignorable="d"
+        Title="Add"
         Height="563" Width="1002"
         ResizeMode="CanMinimize"
         Style="{StaticResource DefaultWindow}">
@@ -75,9 +76,9 @@
 
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
-                        
+
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            
+
                             <CheckBox Content="Interpolate" HorizontalAlignment="Center" VerticalAlignment="Center"
                                       Margin="20" IsChecked="{Binding Path=IsGraph, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </CheckBox>
@@ -85,7 +86,7 @@
                             <StackPanel Orientation="Vertical"
                                         HorizontalAlignment="Center" VerticalAlignment="Center"
                                         Visibility="{Binding Path=IsGraph, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                
+
                                 <TextBlock Text="Tension">
                                 </TextBlock>
 
@@ -111,55 +112,63 @@
                                   SelectedIndex="{Binding ChosenInterpolationStringIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </ComboBox>-->
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+
+                    <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                        <TextBlock Text="Scale X">
-                        </TextBlock>
+                            <TextBlock Text="Scale X">
+                            </TextBlock>
 
-                        <TextBox Style="{StaticResource SmallTextBox}"
+                            <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
                                  Text="{Binding Path=ScaleXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        </TextBox>
+                            </TextBox>
 
-                    </StackPanel>
+                        </StackPanel>
 
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                        <TextBlock Text="Scale Y">
-                        </TextBlock>
+                            <TextBlock Text="Scale Y">
+                            </TextBlock>
 
-                        <TextBox Style="{StaticResource SmallTextBox}"
+                            <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
                                  Text="{Binding Path=ScaleYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        </TextBox>
+                            </TextBox>
 
+                        </StackPanel>
                     </StackPanel>
 
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                        <TextBlock Text="Wrap X">
-                        </TextBlock>
+                            <TextBlock Text="Wrap X">
+                            </TextBlock>
 
-                        <TextBox Style="{StaticResource SmallTextBox}"
+                            <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
                                  Text="{Binding Path=WrapXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        </TextBox>
+                            </TextBox>
 
-                    </StackPanel>
+                        </StackPanel>
 
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                        <TextBlock Text="Wrap Y">
-                        </TextBlock>
+                            <TextBlock Text="Wrap Y">
+                            </TextBlock>
 
-                        <TextBox Style="{StaticResource SmallTextBox}"
+                            <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
                                  Text="{Binding Path=WrapYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        </TextBox>
+                            </TextBox>
+
+                        </StackPanel>
 
                     </StackPanel>
 

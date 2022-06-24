@@ -17,7 +17,7 @@ using Point      = PlotApp.MVVM.Models.Dot.Point;
 namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
     internal class FillFunctionViewModel : BaseViewModel.BaseViewModel {
         public FillFunctionViewModel() {
-            this.myFormula_ = new SofiaFormula();
+            this.myFormula_ = new HibiscusFormula();
         }
 
         public string FunctionString   { get; set; } = string.Empty;
