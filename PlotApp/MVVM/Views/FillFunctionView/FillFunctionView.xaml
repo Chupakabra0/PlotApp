@@ -145,7 +145,8 @@
 
                 <CheckBox x:Name="CheckBox" HorizontalAlignment="Center" VerticalAlignment="Center"
                           Margin="10, 0, 0, 0" Content="Custom function"
-                          IsChecked="{Binding Path=IsCustomFunction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                          IsChecked="{Binding Path=IsCustomFunction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          TextBlock.Foreground="{StaticResource AppWhiteBrush}">
                 </CheckBox>
 
             </StackPanel>

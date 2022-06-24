@@ -62,7 +62,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="Name">
+                                <TextBlock Text="Name" Style="{StaticResource DefaultTextBlock}">
                                 </TextBlock>
 
                                 <TextBox Style="{StaticResource DefaultTextBox}" MinWidth="150"
@@ -80,7 +80,8 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                             <CheckBox Content="Interpolate" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                      Margin="20" IsChecked="{Binding Path=IsGraph, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                      Margin="20" IsChecked="{Binding Path=IsGraph, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      TextBlock.Foreground="{StaticResource AppWhiteBrush}">
                             </CheckBox>
 
                             <StackPanel Orientation="Vertical"
@@ -118,7 +119,7 @@
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                            <TextBlock Text="Scale X">
+                            <TextBlock Text="Scale X" Style="{StaticResource DefaultTextBlock}">
                             </TextBlock>
 
                             <TextBox Style="{StaticResource SmallTextBox}"
@@ -131,7 +132,7 @@
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                            <TextBlock Text="Scale Y">
+                            <TextBlock Text="Scale Y" Style="{StaticResource DefaultTextBlock}">
                             </TextBlock>
 
                             <TextBox Style="{StaticResource SmallTextBox}"
@@ -147,7 +148,7 @@
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                            <TextBlock Text="Wrap X">
+                            <TextBlock Text="Wrap X" Style="{StaticResource DefaultTextBlock}">
                             </TextBlock>
 
                             <TextBox Style="{StaticResource SmallTextBox}"
@@ -160,7 +161,7 @@
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                            <TextBlock Text="Wrap Y">
+                            <TextBlock Text="Wrap Y" Style="{StaticResource DefaultTextBlock}">
                             </TextBlock>
 
                             <TextBox Style="{StaticResource SmallTextBox}"

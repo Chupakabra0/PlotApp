@@ -2,6 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:oxy="http://oxyplot.org/wpf">
 
+    <Style TargetType="TextBlock" x:Key="DefaultTextBlock">
+        <Setter Property="Foreground" Value="{StaticResource AppWhiteBrush}"></Setter>
+    </Style>
+
+    <Style TargetType="MenuItem">
+        <Setter Property="Foreground" Value="{StaticResource AppWhiteBrush}"></Setter>
+    </Style>
+
     <Style TargetType="Window" x:Key="DefaultWindow">
         <Setter Property="Background" Value="{StaticResource AppBlueBrush}"></Setter>
         <Setter Property="Foreground" Value="{StaticResource AppBlackBrush}"></Setter>
@@ -389,20 +397,20 @@
         <Setter Property="Padding" Value="15, 5"></Setter>
         <Setter Property="Margin" Value="10"></Setter>
 
-        <Setter Property="Background" Value="{StaticResource AppGreenBrush}"></Setter>
-        <Setter Property="Foreground" Value="{StaticResource AppWhiteBrush}"></Setter>
+        <!--<Setter Property="Background" Value="{StaticResource AppGreenBrush}"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource AppWhiteBrush}"></Setter>-->
 
         <Setter Property="Height" Value="46"></Setter>
         <!--<Setter Property="Width" Value="356"></Setter>-->
 
         <!--<Setter Property="FontFamily" Value="{StaticResource PoppinsBold}"></Setter>-->
-        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <!--<Setter Property="FontWeight" Value="Bold"></Setter>-->
         <Setter Property="FontSize" Value="18"></Setter>
 
-        <Setter Property="BorderThickness" Value="1"></Setter>
-        <Setter Property="BorderBrush" Value="{StaticResource AppDarkGreenBrush}"></Setter>
+        <!--<Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource AppDarkGreenBrush}"></Setter>-->
 
-        <Setter Property="Template">
+        <!--<Setter Property="Template">
 
             <Setter.Value>
 
@@ -578,7 +586,7 @@
 
             </Setter.Value>
 
-        </Setter>
+        </Setter>-->
 
     </Style>
 

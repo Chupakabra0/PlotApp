@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Color x:Key="AppBlueColor">#eaadc2</Color>
+    <Color x:Key="AppBlueColor">#8270db</Color>
     <SolidColorBrush x:Key="AppBlueBrush" Color="{StaticResource AppBlueColor}"></SolidColorBrush>
 
     <Color x:Key="AppRedColor">#db8270</Color>
