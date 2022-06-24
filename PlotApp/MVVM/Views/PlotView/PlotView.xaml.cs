@@ -1,27 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace PlotApp.MVVM.Views.PlotView
-{
+namespace PlotApp.MVVM.Views.PlotView {
     /// <summary>
     /// Логика взаимодействия для PlotView.xaml
     /// </summary>
-    public partial class PlotView : Window
-    {
-        public PlotView()
-        {
-            InitializeComponent();
+    public partial class PlotView : Window {
+        public PlotView() {
+            try {
+                InitializeComponent();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
