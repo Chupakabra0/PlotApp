@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using org.mariuszgromada.math.mxparser;
@@ -84,6 +85,7 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
                                        new(this.lowLimitY_, this.highLimitY_), this.step_);
 
             this.Points = pb.BuildPoints();
+            this.Points = new ObservableCollection<Point>(Points.OrderBy(p => p.X));
         }
 
         private void FillByMyFunction() {
@@ -91,6 +93,7 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
                                        new(this.lowLimitY_, this.highLimitY_), this.step_);
 
             this.Points = pb.BuildPoints();
+            this.Points = new ObservableCollection<Point>(Points.OrderBy(p => p.X));
         }
     }
 }
