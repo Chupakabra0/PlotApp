@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using OxyPlot;
-using OxyPlot.Annotations;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using PlotApp.Core.Commands.RelayCommand;
@@ -105,6 +105,19 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                 }
             });
 
+        public ICommand HelpCommand =>
+            new RelayCommand(_ => {
+                var path = Path.Combine(Environment.CurrentDirectory, @"Guide\guide.pdf");
+                var process = new Process {
+                    StartInfo = new ProcessStartInfo {
+                        UseShellExecute = true,
+                        FileName = path
+                    }
+                };
+
+                process.Start();
+            });
+
         public PlotModel Model { get; set;  } = new PlotModel {
             PlotType = PlotType.Cartesian,
             Axes = {
@@ -166,7 +179,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             this.Model.Series.Add(this.center_);
         }
 
-        private LineSeries center_ = new LineSeries {
+        private readonly LineSeries center_ = new() {
             Points     = { new DataPoint(0, 0) },
             LineStyle  = LineStyle.None,
             MarkerType = MarkerType.Circle,
