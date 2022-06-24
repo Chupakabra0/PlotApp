@@ -14,94 +14,100 @@
         <plotViewModel:PlotViewModel></plotViewModel:PlotViewModel>
     </Window.DataContext>
 
-    <Grid Margin="20">
+    <Grid>
+        <Menu IsMainMenu="True"
+              Background="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Background}">
+            <MenuItem Header="Help" Command="{Binding }"></MenuItem>
+        </Menu>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        <Grid Margin="30">
 
-        <oxy:PlotView Grid.Column="0" Model="{Binding Path=Model, Mode=TwoWay}">
-        </oxy:PlotView>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="1" Orientation="Vertical"
+            <oxy:PlotView Grid.Column="0" Model="{Binding Path=Model, Mode=TwoWay}">
+            </oxy:PlotView>
+
+            <StackPanel Grid.Column="1" Orientation="Vertical"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
 
-            <ListView ItemsSource="{Binding Path=Functions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ListView ItemsSource="{Binding Path=Functions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Visibility="{Binding Path=Functions.Count, Converter={StaticResource Int32ToVisibilityConverter}}"
                       IsManipulationEnabled="False" Focusable="False"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       MaxHeight="400">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <!--<StackPanel Orientation="Vertical"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <!--<StackPanel Orientation="Vertical"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Margin="20">-->
-                        <Grid>
+                            <Grid>
 
-                            <Border BorderBrush="{StaticResource AppBlackBrush}"
+                                <Border BorderBrush="{StaticResource AppBlackBrush}"
                                     BorderThickness="1">
-                            </Border>
+                                </Border>
 
-                            <Grid Width="250"
+                                <Grid Width="250"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   Margin="10">
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
 
 
 
-                                <TextBlock Grid.Column="0"
+                                    <TextBlock Grid.Column="0"
                                            Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            FontSize="20"
                                            Margin="10"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            TextWrapping="Wrap">
-                                </TextBlock>
+                                    </TextBlock>
 
-                                <StackPanel Grid.Column="1"
+                                    <StackPanel Grid.Column="1"
                                             Orientation="Horizontal"
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Center">
 
-                                    <!--<Button Content="Edit"
+                                        <!--<Button Content="Edit"
                                             HorizontalAlignment="Right"
                                             Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.EditPlotCommand}"
                                             CommandParameter="{Binding Path=.}">
                                     </Button>-->
 
-                                    <!--<Button Content="Del"
+                                        <!--<Button Content="Del"
                                             HorizontalAlignment="Right"
                                             Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.DeletePlotCommand}"
                                             CommandParameter="{Binding Path=.}">-->
 
-                                    <!--</Button>-->
+                                        <!--</Button>-->
 
-                                    <Button HorizontalAlignment="Right" VerticalAlignment="Center"
+                                        <Button HorizontalAlignment="Right" VerticalAlignment="Center"
                                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                            Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.EditPlotCommand}"
                                            CommandParameter="{Binding Path=.}"
                                            Style="{StaticResource EditButton}">
-                                    </Button>
+                                        </Button>
 
-                                    <Button HorizontalAlignment="Right" VerticalAlignment="Center"
+                                        <Button HorizontalAlignment="Right" VerticalAlignment="Center"
                                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                            Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.DeletePlotCommand}"
                                            CommandParameter="{Binding Path=.}"
                                            Style="{StaticResource TrashButton}">
-                                    </Button>
+                                        </Button>
 
-                                </StackPanel>
+                                    </StackPanel>
 
-                            </Grid>
+                                </Grid>
 
-                            <!--<StackPanel Orientation="Horizontal"
+                                <!--<StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center">
 
@@ -175,25 +181,26 @@
 
 
                             -->
-                            <!--<TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <!--<TextBox Text="{Binding Path=ScaleX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </TextBox>-->
-                            <!--
+                                <!--
 
                             </StackPanel>-->
-                            <!--</StackPanel>-->
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                <!--</StackPanel>-->
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-            <Button Content="Add"
+                <Button Content="Add"
                     Style="{StaticResource DefaultButton}"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Command="{Binding Path=AddPlotCommand}">
-            </Button>
+                </Button>
 
-        </StackPanel>
+            </StackPanel>
 
+        </Grid>
     </Grid>
 
 </Window>

@@ -19,14 +19,18 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
             this.myFormula_ = new SofiaFormula();
         }
 
-        public string FunctionString   { get; set; } = "x^2";
+        public string FunctionString   { get; set; } = string.Empty;
         public string LowLimitXString  { get; set; } = "-10.0";
         public string HighLimitXString { get; set; } = "10.0";
         public string LowLimitYString  { get; set; } = double.NegativeInfinity.ToString(CultureInfo.InvariantCulture);
         public string HighLimitYString { get; set; } = double.PositiveInfinity.ToString(CultureInfo.InvariantCulture);
         public string StepString       { get; set; } = "0.1";
+        public bool   IsCustomFunction { get; set; } = false;
 
-        public ICommand EvaluateCommand =>
+        public ICommand CalculateCommand =>
+            this.IsCustomFunction ? this.FillByCustomFunctionCommand : this.FillByMyFunctionCommand;
+
+        public ICommand FillByCustomFunctionCommand =>
             new RelayCommand(_ => {
                 if (this.CheckAllStrings()) {
                     this.FillPoints();
@@ -73,7 +77,7 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
             decimalValidation.IsDouble(this.LowLimitXString) && decimalValidation.IsDouble(this.HighLimitXString) 
             && decimalValidation.IsDouble(this.LowLimitYString) && decimalValidation.IsDouble(this.HighLimitYString)
             && decimalValidation.IsDouble(this.StepString)
-            && this.functionWrapper_.checkSyntax();
+            && ((this.functionWrapper_.checkSyntax() && this.FunctionString != string.Empty) || !this.IsCustomFunction);
 
         private void FillPoints() {
             var pb = new PointsBuilder(this.function_, new(this.lowLimitX_, this.highLimitX_),

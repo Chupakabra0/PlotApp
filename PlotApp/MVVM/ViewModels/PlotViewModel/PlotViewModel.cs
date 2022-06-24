@@ -13,7 +13,7 @@ using PlotApp.Core.FunctionType;
 using PlotApp.Core.FunctionWrapper;
 using PlotApp.MVVM.Models.Function;
 using PlotApp.MVVM.Views.CreatePlotView;
-using FontWeights = OxyPlot.FontWeights;
+
 using Point = PlotApp.MVVM.Models.Dot.Point;
 
 namespace PlotApp.MVVM.ViewModels.PlotViewModel {
