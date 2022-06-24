@@ -42,7 +42,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
         public string  ScaleYString { get; set; } = "1.0";
         public string  WrapXString  { get; set; } = "0.0";
         public string  WrapYString  { get; set; } = "0.0";
-        public string  Name         { get; set; } = "Graph";
+        public string  Name         { get; set; } = "Func";
         public decimal Tension      { get; set; } = 0.0M;
         public bool    IsGraph      { get; set; } = false;
 
