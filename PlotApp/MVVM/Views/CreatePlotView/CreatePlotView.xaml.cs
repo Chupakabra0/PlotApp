@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace PlotApp.MVVM.Views.CreatePlotView {
     /// <summary>
@@ -6,7 +7,12 @@ namespace PlotApp.MVVM.Views.CreatePlotView {
     /// </summary>
     public partial class CreatePlotView : Window {
         public CreatePlotView() {
-            InitializeComponent();
+            try {
+                InitializeComponent();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
