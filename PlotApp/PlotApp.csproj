@@ -22,6 +22,11 @@
 
   <ItemGroup>
     <Folder Include="Resources\Fonts\" />
+    <Folder Include="Resources\Guide\" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="xcopy /R /Y &quot;$(ProjectDir)Resources\Guide\guide.pdf&quot; &quot;$(TargetDir)Guide\&quot;" />
+  </Target>
 
 </Project>
