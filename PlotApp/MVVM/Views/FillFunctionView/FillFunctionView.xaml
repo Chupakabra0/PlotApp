@@ -6,7 +6,7 @@
         xmlns:fillFunctionViewModel="clr-namespace:PlotApp.MVVM.ViewModels.FillFunctionViewModel"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="Fill" Height="366" Width="649"
+        Title="My F(x)" Height="366" Width="649"
         ResizeMode="CanMinimize"
         Style="{StaticResource DefaultWindow}">
 

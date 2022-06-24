@@ -7,7 +7,7 @@
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:controlValidations="clr-namespace:PlotApp.Core.Validations.ControlValidations"
         mc:Ignorable="d"
-        Title="Add"
+        Title="New"
         Height="563" Width="1002"
         ResizeMode="CanMinimize"
         Style="{StaticResource DefaultWindow}">

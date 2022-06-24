@@ -6,7 +6,7 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:plotViewModel="clr-namespace:PlotApp.MVVM.ViewModels.PlotViewModel"
         mc:Ignorable="d"
-        Title="Chart"
+        Title="Graph"
         Height="563" Width="1002"
         Style="{StaticResource DefaultWindow}">
 
