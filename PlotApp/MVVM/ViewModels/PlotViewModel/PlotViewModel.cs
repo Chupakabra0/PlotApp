@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -8,6 +9,7 @@ using System.Windows.Input;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Legends;
+using OxyPlot.Annotations;
 using OxyPlot.Series;
 using PlotApp.Core.Commands.RelayCommand;
 using PlotApp.Core.FunctionType;
@@ -189,11 +191,14 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
         }
 
         private void UpdateAllPlots() {
+            this.Model.Annotations.Clear();
             this.Model.Series.Clear();
 
             foreach (var f in this.Functions) {
                 this.Model.Series.Add(f.GetLineSeries());
             }
+
+            this.DrawArrows();
             this.DrawCenter();
 
             this.Model.PlotView.InvalidatePlot();
@@ -201,6 +206,30 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
 
         private void DrawCenter() {
             this.Model.Series.Add(this.center_);
+        }
+
+        private void DrawArrows() {
+            var maxX = this.Model.Series.Max(s => ((LineSeries)s).Points.Count() != 0 ? ((LineSeries)s).Points.Max(p => p.X) : double.NegativeInfinity);
+            var maxY = this.Model.Series.Max(s => ((LineSeries)s).Points.Count() != 0 ? ((LineSeries)s).Points.Max(p => p.Y) : double.NegativeInfinity);
+
+            // OY
+            this.Model.Annotations.Add(new ArrowAnnotation {
+                StartPoint = new DataPoint(0, 0),
+                EndPoint = new DataPoint(0, maxY),
+                LineStyle = LineStyle.Solid,
+                LineJoin = LineJoin.Bevel,
+                Color = OxyColors.Red,
+            });
+
+            // OY
+            this.Model.Annotations.Add(new ArrowAnnotation
+            {
+                StartPoint = new DataPoint(0, 0),
+                EndPoint = new DataPoint(maxX, 0),
+                LineStyle = LineStyle.Solid,
+                LineJoin = LineJoin.Bevel,
+                Color = OxyColors.Green,
+            });
         }
 
         private readonly LineSeries center_ = new() {
