@@ -40,7 +40,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
         public string  WrapYString  { get; set; } = "0.0";
         public string  Name         { get; set; } = "Графік";
         public decimal Tension      { get; set; } = 0.0M;
-
+        
         public ICommand SaveToFileCommand =>
             new RelayCommand(_ => {
                 var dialog = new SaveFileDialog {

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using OxyPlot;
+using OxyPlot.Annotations;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using PlotApp.Core.Commands.RelayCommand;
@@ -166,17 +168,44 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
 
         private void UpdateAllPlots() {
             this.Model.Series.Clear();
+            this.Model.Annotations.Clear();
 
             foreach (var f in this.Functions) {
                 this.Model.Series.Add(f.GetLineSeries());
             }
+
             this.DrawCenter();
+            this.DrawArrows();
 
             this.Model.PlotView.InvalidatePlot();
         }
 
         private void DrawCenter() {
             this.Model.Series.Add(this.center_);
+        }
+
+        private void DrawArrows() {
+            var maxX = this.Model.Series.Max(s => ((LineSeries)s).Points.Count() != 0 ? ((LineSeries)s).Points.Max(p => p.X) : double.NegativeInfinity);
+            var maxY = this.Model.Series.Max(s => ((LineSeries)s).Points.Count() != 0 ? ((LineSeries)s).Points.Max(p => p.Y) : double.NegativeInfinity);
+
+            // OY
+            this.Model.Annotations.Add(new ArrowAnnotation {
+                StartPoint = new DataPoint(0, 0),
+                EndPoint = new DataPoint(0, maxY),
+                LineStyle = LineStyle.Solid,
+                LineJoin = LineJoin.Bevel,
+                Color = OxyColors.Black,
+            });
+
+            // OY
+            this.Model.Annotations.Add(new ArrowAnnotation
+            {
+                StartPoint = new DataPoint(0, 0),
+                EndPoint = new DataPoint(maxX, 0),
+                LineStyle = LineStyle.Solid,
+                LineJoin = LineJoin.Bevel,
+                Color = OxyColors.Black,
+            });
         }
 
         private readonly LineSeries center_ = new() {
