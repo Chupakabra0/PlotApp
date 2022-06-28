@@ -58,7 +58,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
                     sw.Write(s);
                 }
 
-                MessageBox.Show("Ready");
+                MessageBox.Show("Готово");
             });
 
         public ICommand AddFromFileCommand =>
@@ -77,7 +77,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
                     }
                 }
 
-                MessageBox.Show("Ready");
+                MessageBox.Show("Готово");
             });
 
         public ICommand FillFunctionCommand =>
@@ -91,7 +91,7 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
                         this.Points.Add(point);
                     }
 
-                    MessageBox.Show("Ready");
+                    MessageBox.Show("Готово");
                 }
             });
 

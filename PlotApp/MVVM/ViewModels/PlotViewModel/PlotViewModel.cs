@@ -53,7 +53,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
         public ICommand DeletePlotCommand =>
             new RelayCommand(o => {
                 if (o is FunctionWrapper plot) {
-                    var result = MessageBox.Show("Are you sure you want to delete {}?", "Delete",
+                    var result = MessageBox.Show("Ви впевнені, що хочете це видалити?", "Видалення",
                         MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
 
                     if (result == MessageBoxResult.Yes) {

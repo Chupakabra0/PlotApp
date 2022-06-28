@@ -11,7 +11,7 @@ namespace PlotApp.MVVM.Views.FillFunctionView {
                 InitializeComponent();
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

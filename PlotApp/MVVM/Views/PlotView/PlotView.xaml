@@ -17,7 +17,7 @@
     <Grid>
         <Menu IsMainMenu="True"
               Background="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Background}">
-            <MenuItem Header="Help"
+            <MenuItem Header="Допомога"
                       Command="{Binding Path=HelpCommand}">
             </MenuItem>
         </Menu>
