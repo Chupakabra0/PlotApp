@@ -32,358 +32,6 @@
         <Setter Property="MinWidth" Value="48"></Setter>
     </Style>
 
-    <Style TargetType="Button" x:Key="EditButton">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-
-                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label HorizontalAlignment="Center" VerticalAlignment="Center"
-                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                            <Label.Content>
-                                <Path x:Name="ButtonPath"
-                                      Fill="Black" Stroke="White"
-                                      Data="M 23.234375 0.765625 C 24.109375 1.640625 24.109375 3.058594 23.234375 3.933594 L 22.179688 4.988281 L 19.011719 1.820312 L 20.066406 0.765625 C 20.941406 -0.109375 22.359375 -0.109375 23.234375 0.765625 Z M 7.398438 13.433594 L 6.34375 17.65625 L 10.566406 16.601562 L 21.125 6.042969 L 17.957031 2.875 Z M 17.917969 11.359375 L 17.917969 21.011719 L 2.988281 21.011719 L 2.988281 6.082031 L 12.640625 6.082031 L 15.625 3.09375 L 0 3.09375 L 0 24 L 20.90625 24 L 20.90625 8.375 Z M 17.917969 11.359375">
-                                </Path>
-                            </Label.Content>
-                        </Label>
-                    </Grid>
-
-                    <ControlTemplate.Triggers>
-
-                        <MultiDataTrigger>
-
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
-                                           Value="False">
-                                </Condition>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
-                                           Value="True">
-                                </Condition>
-                            </MultiDataTrigger.Conditions>
-
-                            <MultiDataTrigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppBlackColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.EnterActions>
-
-                            <MultiDataTrigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppDarkGrayColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.ExitActions>
-
-                        </MultiDataTrigger>
-
-                        <MultiDataTrigger>
-
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
-                                           Value="True">
-                                </Condition>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
-                                           Value="False">
-                                </Condition>
-                            </MultiDataTrigger.Conditions>
-
-                            <MultiDataTrigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppDarkGrayColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.EnterActions>
-
-                            <MultiDataTrigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppBlackColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.ExitActions>
-
-                        </MultiDataTrigger>
-
-                        <MultiDataTrigger>
-
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
-                                           Value="True">
-                                </Condition>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
-                                           Value="True">
-                                </Condition>
-                            </MultiDataTrigger.Conditions>
-
-                            <MultiDataTrigger.EnterActions>
-                                <RemoveStoryboard BeginStoryboardName="Enable"></RemoveStoryboard>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppGrayColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.EnterActions>
-
-                            <MultiDataTrigger.ExitActions>
-                                <RemoveStoryboard BeginStoryboardName="Enable"></RemoveStoryboard>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppBlackColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.ExitActions>
-
-                        </MultiDataTrigger>
-
-                        <MultiDataTrigger>
-
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
-                                           Value="False">
-                                </Condition>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
-                                           Value="False">
-                                </Condition>
-                            </MultiDataTrigger.Conditions>
-
-                            <MultiDataTrigger.EnterActions>
-                                <BeginStoryboard Name="Disable">
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppDarkGrayColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.EnterActions>
-
-                            <MultiDataTrigger.ExitActions>
-                                <BeginStoryboard Name="Enable">
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppBlackColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.ExitActions>
-
-                        </MultiDataTrigger>
-
-                    </ControlTemplate.Triggers>
-
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="Button" x:Key="TrashButton">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-
-                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label HorizontalAlignment="Center" VerticalAlignment="Center"
-                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                            <Label.Content>
-                                <Path x:Name="ButtonPath"
-                                      Fill="Black" Stroke="White"
-                                      Data="M 20.398438 2.398438 L 16.199219 2.398438 L 15 1.199219 L 9 1.199219 L 7.800781 2.398438 L 3.601562 2.398438 L 3.601562 4.800781 L 20.398438 4.800781 Z M 4.800781 20.398438 C 4.800781 21.726562 5.875 22.800781 7.199219 22.800781 L 16.800781 22.800781 C 18.125 22.800781 19.199219 21.726562 19.199219 20.398438 L 19.199219 6 L 4.800781 6 Z M 4.800781 20.398438">
-                                </Path>
-                            </Label.Content>
-                        </Label>
-                    </Grid>
-
-                    <ControlTemplate.Triggers>
-
-                        <MultiDataTrigger>
-
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
-                                           Value="False">
-                                </Condition>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
-                                           Value="True">
-                                </Condition>
-                            </MultiDataTrigger.Conditions>
-
-                            <MultiDataTrigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppBlackColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.EnterActions>
-
-                            <MultiDataTrigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppDarkGrayColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.ExitActions>
-
-                        </MultiDataTrigger>
-
-                        <MultiDataTrigger>
-
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
-                                           Value="True">
-                                </Condition>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
-                                           Value="False">
-                                </Condition>
-                            </MultiDataTrigger.Conditions>
-
-                            <MultiDataTrigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppDarkGrayColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.EnterActions>
-
-                            <MultiDataTrigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppBlackColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.ExitActions>
-
-                        </MultiDataTrigger>
-
-                        <MultiDataTrigger>
-
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
-                                           Value="True">
-                                </Condition>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
-                                           Value="True">
-                                </Condition>
-                            </MultiDataTrigger.Conditions>
-
-                            <MultiDataTrigger.EnterActions>
-                                <RemoveStoryboard BeginStoryboardName="Enable"></RemoveStoryboard>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppGrayColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.EnterActions>
-
-                            <MultiDataTrigger.ExitActions>
-                                <RemoveStoryboard BeginStoryboardName="Enable"></RemoveStoryboard>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppBlackColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.ExitActions>
-
-                        </MultiDataTrigger>
-
-                        <MultiDataTrigger>
-
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
-                                           Value="False">
-                                </Condition>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
-                                           Value="False">
-                                </Condition>
-                            </MultiDataTrigger.Conditions>
-
-                            <MultiDataTrigger.EnterActions>
-                                <BeginStoryboard Name="Disable">
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppDarkGrayColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.EnterActions>
-
-                            <MultiDataTrigger.ExitActions>
-                                <BeginStoryboard Name="Enable">
-                                    <Storyboard>
-                                        <ColorAnimation To="{StaticResource AppBlackColor}"
-                                                        Duration="0:0:0.25"
-                                                        Storyboard.TargetName="ButtonPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
-                                        </ColorAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </MultiDataTrigger.ExitActions>
-
-                        </MultiDataTrigger>
-
-                    </ControlTemplate.Triggers>
-
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <Style TargetType="Button" x:Key="DefaultButton">
 
         <Setter Property="Padding" Value="15, 5"></Setter>
@@ -580,6 +228,370 @@
 
         </Setter>
 
+    </Style>
+
+    <Style TargetType="Button" x:Key="EditButton" BasedOn="{StaticResource DefaultButton}">
+        <Setter Property="Background" Value="{StaticResource AppWhiteBrush}"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource AppBlackBrush}"></Setter>
+        <Setter Property="Padding" Value="7, 3"></Setter>
+        <Setter Property="Margin" Value="5"></Setter>
+        
+        <Setter Property="BorderThickness" Value="0.5"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource AppBlackBrush}"></Setter>
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="Button">
+
+                    <Grid>
+
+                        <Border x:Name="ButtonBorder"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="3">
+
+                            <TextBlock HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       Margin="{TemplateBinding Padding}"
+                                       Focusable="False" 
+                                       Text="{TemplateBinding Content}"
+                                       FontFamily="{TemplateBinding FontFamily}">
+                            </TextBlock>
+
+                        </Border>
+
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+
+                        <MultiDataTrigger>
+
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+                                           Value="False">
+                                </Condition>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
+                                           Value="True">
+                                </Condition>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppWhiteColor}" Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+
+                            <MultiDataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppGrayColor}" Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+                                           Value="True">
+                                </Condition>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
+                                           Value="False">
+                                </Condition>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppGrayColor}" Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+
+                            <MultiDataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppWhiteColor}" Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+                                           Value="True">
+                                </Condition>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
+                                           Value="True">
+                                </Condition>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.EnterActions>
+                                <RemoveStoryboard BeginStoryboardName="Enable"></RemoveStoryboard>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppDarkGreenColor}" Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+
+                            <MultiDataTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="Enable"></RemoveStoryboard>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppWhiteColor}" Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+                                           Value="False">
+                                </Condition>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
+                                           Value="False">
+                                </Condition>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard Name="Disable">
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppGrayColor}" Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+
+                            <MultiDataTrigger.ExitActions>
+                                <BeginStoryboard Name="Enable">
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppWhiteColor}" Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonBorder"
+                                                        Storyboard.TargetProperty="Background.Color">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+
+                        </MultiDataTrigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+    </Style>
+
+    <Style TargetType="Button" x:Key="TrashButton" BasedOn="{StaticResource EditButton}">
+        <!--<Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center"
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                            <Label.Content>
+                                <Path x:Name="ButtonPath"
+                                      Fill="Black" Stroke="White"
+                                      Data="M 20.398438 2.398438 L 16.199219 2.398438 L 15 1.199219 L 9 1.199219 L 7.800781 2.398438 L 3.601562 2.398438 L 3.601562 4.800781 L 20.398438 4.800781 Z M 4.800781 20.398438 C 4.800781 21.726562 5.875 22.800781 7.199219 22.800781 L 16.800781 22.800781 C 18.125 22.800781 19.199219 21.726562 19.199219 20.398438 L 19.199219 6 L 4.800781 6 Z M 4.800781 20.398438">
+                                </Path>
+                            </Label.Content>
+                        </Label>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+
+                        <MultiDataTrigger>
+
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+                                           Value="False">
+                                </Condition>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
+                                           Value="True">
+                                </Condition>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppBlackColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonPath"
+                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+
+                            <MultiDataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppDarkGrayColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonPath"
+                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+                                           Value="True">
+                                </Condition>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
+                                           Value="False">
+                                </Condition>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppDarkGrayColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonPath"
+                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+
+                            <MultiDataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppBlackColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonPath"
+                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+                                           Value="True">
+                                </Condition>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
+                                           Value="True">
+                                </Condition>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.EnterActions>
+                                <RemoveStoryboard BeginStoryboardName="Enable"></RemoveStoryboard>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppGrayColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonPath"
+                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+
+                            <MultiDataTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="Enable"></RemoveStoryboard>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppBlackColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonPath"
+                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+                                           Value="False">
+                                </Condition>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}"
+                                           Value="False">
+                                </Condition>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard Name="Disable">
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppDarkGrayColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonPath"
+                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+
+                            <MultiDataTrigger.ExitActions>
+                                <BeginStoryboard Name="Enable">
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource AppBlackColor}"
+                                                        Duration="0:0:0.25"
+                                                        Storyboard.TargetName="ButtonPath"
+                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+
+                        </MultiDataTrigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>-->
     </Style>
 
     <Style TargetType="DataGrid" x:Key="DefaultDataGrid">

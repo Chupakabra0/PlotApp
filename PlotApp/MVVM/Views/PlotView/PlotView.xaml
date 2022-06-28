@@ -95,14 +95,16 @@
                                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                            Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.EditPlotCommand}"
                                            CommandParameter="{Binding Path=.}"
-                                           Style="{StaticResource EditButton}">
+                                           Style="{StaticResource EditButton}"
+                                           Content="🖊">
                                         </Button>
 
                                         <Button HorizontalAlignment="Right" VerticalAlignment="Center"
                                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                                            Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.DeletePlotCommand}"
                                            CommandParameter="{Binding Path=.}"
-                                           Style="{StaticResource TrashButton}">
+                                           Style="{StaticResource TrashButton}"
+                                           Content="🗑">
                                         </Button>
 
                                     </StackPanel>
