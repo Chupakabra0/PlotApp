@@ -22,18 +22,14 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
         }
 
         public CreatePlotViewModel(List<Point> points, decimal scaleX, decimal scaleY, decimal wrapX, decimal wrapY, decimal tension, FunctionType type, string name) {
-            this.Points       = new(points);
-            this.ScaleXString = scaleX.ToString(CultureInfo.InvariantCulture);
-            this.ScaleYString = scaleY.ToString(CultureInfo.InvariantCulture);
-            this.WrapXString  = wrapX.ToString(CultureInfo.InvariantCulture);
-            this.WrapYString  = wrapY.ToString(CultureInfo.InvariantCulture);
-            this.Name         = name;
-            this.Tension      = tension;
-            this.IsGraph      = type switch {
-                FunctionType.Line  => true,
-                FunctionType.Point => false,
-                _                  => false
-            };
+            this.Points            = new(points);
+            this.ScaleXString      = scaleX.ToString(CultureInfo.InvariantCulture);
+            this.ScaleYString      = scaleY.ToString(CultureInfo.InvariantCulture);
+            this.WrapXString       = wrapX.ToString(CultureInfo.InvariantCulture);
+            this.WrapYString       = wrapY.ToString(CultureInfo.InvariantCulture);
+            this.Name              = name;
+            this.Tension           = tension;
+            this.FunctionTypeIndex = (int)type;
         }
 
         public ObservableCollection<Point> Points { get; set; } = new();
@@ -44,7 +40,6 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
         public string  WrapYString  { get; set; } = "0.0";
         public string  Name         { get; set; } = "Графік";
         public decimal Tension      { get; set; } = 0.0M;
-        public bool    IsGraph      { get; set; } = false;
 
         public ICommand SaveToFileCommand =>
             new RelayCommand(_ => {
@@ -106,8 +101,12 @@ namespace PlotApp.MVVM.ViewModels.CreatePlotViewModel {
         public decimal WrapY
             => DoubleDecimalCast.CastToDecimal(double.Parse(this.WrapYString,  CultureInfo.InvariantCulture));
 
-        public FunctionType Type
-            => this.IsGraph ? FunctionType.Line : FunctionType.Point;
+        public int FunctionTypeIndex { get; set; } = 0;
+        public ObservableCollection<FunctionType> FunctionTypeList { get; set; } = new(){
+            FunctionType.Line,
+            FunctionType.Point
+        };
+        public FunctionType Type => this.FunctionTypeList[this.FunctionTypeIndex];
 
         private readonly IDataManipulator dataManipulator_ = new JsonDataManipulator();
 
