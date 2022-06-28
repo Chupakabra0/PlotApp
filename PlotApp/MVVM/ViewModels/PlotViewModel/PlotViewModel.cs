@@ -120,9 +120,12 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             });
 
         public PlotModel Model { get; set;  } = new PlotModel {
-            PlotType = PlotType.Cartesian, IsLegendVisible = true,
+            PlotType = PlotType.Cartesian,
+            IsLegendVisible = true,
             Legends = { new Legend {
                 LegendTitle = "Legend",
+                LegendTitleColor = OxyColors.White,
+                LegendTextColor = OxyColors.White,
                 LegendPosition = LegendPosition.RightTop,
             } },
             Axes = {
@@ -130,10 +133,10 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                     Position               = AxisPosition.Bottom,
                     ExtraGridlines         = new[]{ 0.0 },
                     ExtraGridlineThickness = 3,
-                    ExtraGridlineColor     = OxyColors.Black,
+                    ExtraGridlineColor     = OxyColors.Red,
                     ExtraGridlineStyle     = LineStyle.Solid,
                     Title                  = "X",
-                    MajorGridlineColor     = OxyColors.LightGray,
+                    MajorGridlineColor     = OxyColors.IndianRed,
                     MajorGridlineStyle     = LineStyle.Dot,
                     MajorGridlineThickness = 1
                 },
@@ -141,10 +144,10 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
                     Position               = AxisPosition.Left,
                     ExtraGridlines         = new[]{ 0.0 },
                     ExtraGridlineThickness = 3,
-                    ExtraGridlineColor     = OxyColors.Black,
+                    ExtraGridlineColor     = OxyColors.Green,
                     ExtraGridlineStyle     = LineStyle.Solid,
                     Title                  = "Y",
-                    MajorGridlineColor     = OxyColors.LightGray,
+                    MajorGridlineColor     = OxyColors.LightGreen,
                     MajorGridlineStyle     = LineStyle.Dot,
                     MajorGridlineThickness = 1
                 }
@@ -188,7 +191,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             Points     = { new DataPoint(0, 0) },
             LineStyle  = LineStyle.None,
             MarkerType = MarkerType.Circle,
-            Color      = OxyColors.BlueViolet
+            Color      = OxyColors.Blue
         };
     }
 }

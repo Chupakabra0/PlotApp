@@ -29,7 +29,8 @@
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <oxy:PlotView Grid.Column="1" Model="{Binding Path=Model, Mode=TwoWay}">
+            <oxy:PlotView Grid.Column="1" Model="{Binding Path=Model, Mode=TwoWay}"
+                          Background="Transparent">
             </oxy:PlotView>
 
             <StackPanel Grid.Column="0" Orientation="Vertical"
@@ -39,7 +40,8 @@
                       Visibility="{Binding Path=Functions.Count, Converter={StaticResource Int32ToVisibilityConverter}}"
                       IsManipulationEnabled="False" Focusable="False"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                      MaxHeight="400">
+                      MaxHeight="400"
+                      Background="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <!--<StackPanel Orientation="Vertical"
