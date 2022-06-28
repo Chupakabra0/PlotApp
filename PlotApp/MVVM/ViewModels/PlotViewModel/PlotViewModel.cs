@@ -131,22 +131,38 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             Axes = {
                 new LinearAxis {
                     Position               = AxisPosition.Bottom,
+
                     ExtraGridlines         = new[]{ 0.0 },
                     ExtraGridlineThickness = 3,
                     ExtraGridlineColor     = OxyColors.Red,
                     ExtraGridlineStyle     = LineStyle.Solid,
+
                     Title                  = "X",
+                    TitleColor             = OxyColors.Red,
+                    TitleFontWeight        = OxyPlot.FontWeights.Bold,
+
+                    TextColor              = OxyColors.Red,
+                    FontWeight             = OxyPlot.FontWeights.Bold,
+
                     MajorGridlineColor     = OxyColors.IndianRed,
                     MajorGridlineStyle     = LineStyle.Dot,
                     MajorGridlineThickness = 1
                 },
                 new LinearAxis {
                     Position               = AxisPosition.Left,
+
                     ExtraGridlines         = new[]{ 0.0 },
                     ExtraGridlineThickness = 3,
                     ExtraGridlineColor     = OxyColors.Green,
                     ExtraGridlineStyle     = LineStyle.Solid,
+
                     Title                  = "Y",
+                    TitleColor             = OxyColors.Green,
+                    TitleFontWeight        = OxyPlot.FontWeights.Bold,
+
+                    TextColor              = OxyColors.Green,
+                    FontWeight             = OxyPlot.FontWeights.Bold,
+
                     MajorGridlineColor     = OxyColors.LightGreen,
                     MajorGridlineStyle     = LineStyle.Dot,
                     MajorGridlineThickness = 1
