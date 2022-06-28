@@ -61,7 +61,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="Name">
+                                <TextBlock Text="Назва графіка">
                                 </TextBlock>
 
                                 <TextBox Style="{StaticResource DefaultTextBox}" MinWidth="150"
@@ -114,11 +114,12 @@
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                        <TextBlock Text="Scale X">
+                        <TextBlock Text="Масштабування відносно OX">
                         </TextBlock>
 
                         <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
+                                 Width="{Binding RelativeSource={RelativeSource Self}, Path=MinWidth}"
                                  Text="{Binding Path=ScaleXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
@@ -127,11 +128,12 @@
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                        <TextBlock Text="Scale Y">
+                        <TextBlock Text="Масштабування відносно OY">
                         </TextBlock>
 
                         <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
+                                 Width="{Binding RelativeSource={RelativeSource Self}, Path=MinWidth}"
                                  Text="{Binding Path=ScaleYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
@@ -140,11 +142,12 @@
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                        <TextBlock Text="Wrap X">
+                        <TextBlock Text="Перенесення вздовж OX">
                         </TextBlock>
 
                         <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
+                                 Width="{Binding RelativeSource={RelativeSource Self}, Path=MinWidth}"
                                  Text="{Binding Path=WrapXString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
@@ -153,11 +156,12 @@
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Margin="0">
 
-                        <TextBlock Text="Wrap Y">
+                        <TextBlock Text="Перенесення вздовж OY">
                         </TextBlock>
 
                         <TextBox Style="{StaticResource SmallTextBox}"
                                  VerticalAlignment="Center"
+                                 Width="{Binding RelativeSource={RelativeSource Self}, Path=MinWidth}"
                                  Text="{Binding Path=WrapYString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         </TextBox>
 
@@ -172,15 +176,15 @@
                 <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center"
                             VerticalAlignment="Center">
 
-                    <Button Style="{StaticResource DefaultButton}" Content="Save to file"
+                    <Button Style="{StaticResource DefaultButton}" Content="Зберегти в файл"
                             Command="{Binding Path=SaveToFileCommand}">
                     </Button>
 
-                    <Button Style="{StaticResource DefaultButton}" Content="Add from file"
+                    <Button Style="{StaticResource DefaultButton}" Content="Додати з файлу"
                             Command="{Binding Path=AddFromFileCommand}">
                     </Button>
 
-                    <Button Style="{StaticResource DefaultButton}" Content="Fill by F(x)"
+                    <Button Style="{StaticResource DefaultButton}" Content="Додати з F(x)"
                             Command="{Binding Path=FillFunctionCommand}">
                     </Button>
 
@@ -190,7 +194,7 @@
                             VerticalAlignment="Center">
 
                     <Button Style="{StaticResource DefaultButton}"
-                            IsDefault="True" Content="Done"
+                            IsDefault="True" Content="Готово"
                             Command="{Binding DoneCommand}">
                         <b:Interaction.Triggers>
                             <b:EventTrigger EventName="Click">
@@ -205,7 +209,7 @@
                         </b:Interaction.Triggers>
                     </Button>
 
-                    <Button Style="{StaticResource DefaultButton}" Content="Cancel">
+                    <Button Style="{StaticResource DefaultButton}" Content="Скасувати">
                         <b:Interaction.Triggers>
                             <b:EventTrigger EventName="Click">
                                 <!--<b:CallMethodAction MethodName="Close"

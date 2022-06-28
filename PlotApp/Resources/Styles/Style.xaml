@@ -397,7 +397,7 @@
 
         <!--<Setter Property="FontFamily" Value="{StaticResource PoppinsBold}"></Setter>-->
         <Setter Property="FontWeight" Value="Bold"></Setter>
-        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
 
         <Setter Property="BorderThickness" Value="1"></Setter>
         <Setter Property="BorderBrush" Value="{StaticResource AppDarkGreenBrush}"></Setter>
