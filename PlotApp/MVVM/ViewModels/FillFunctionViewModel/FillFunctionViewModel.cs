@@ -37,7 +37,7 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
                     this.FillPoints();
                 }
                 else {
-                    MessageBox.Show("Неправильний формат", "Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                    MessageBox.Show("Неправильний формат", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
                 }
             }, _ => this.CheckAllStrings());
 
@@ -47,7 +47,7 @@ namespace PlotApp.MVVM.ViewModels.FillFunctionViewModel {
                     this.FillByMyFunction();
                 }
                 else {
-                    MessageBox.Show("Wrong format", "Error", MessageBoxButton.OK, MessageBoxImage.Error,
+                    MessageBox.Show("Неправильний формат", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error,
                                     MessageBoxResult.OK);
                 }
             }, _ => this.CheckAllStrings()); // TODO: another check rool
