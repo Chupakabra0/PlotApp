@@ -39,7 +39,8 @@ namespace PlotApp.Core.FunctionWrapper {
                 };
 
             var series = new LineSeries {
-                InterpolationAlgorithm = new CanonicalSpline(DoubleDecimalCast.CastToDouble(this.Tension))
+                InterpolationAlgorithm = new CanonicalSpline(DoubleDecimalCast.CastToDouble(this.Tension)),
+                Title = this.Name
             };
             series = configurator?.Config(series) ?? series;
 

@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using OxyPlot;
 using OxyPlot.Axes;
+using OxyPlot.Legends;
 using OxyPlot.Series;
 using PlotApp.Core.Commands.RelayCommand;
 using PlotApp.Core.FunctionType;
@@ -119,7 +120,11 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             });
 
         public PlotModel Model { get; set;  } = new PlotModel {
-            PlotType = PlotType.Cartesian,
+            PlotType = PlotType.Cartesian, IsLegendVisible = true,
+            Legends = { new Legend {
+                LegendTitle = "Legend",
+                LegendPosition = LegendPosition.RightTop,
+            } },
             Axes = {
                 new LinearAxis {
                     Position               = AxisPosition.Bottom,
@@ -183,8 +188,7 @@ namespace PlotApp.MVVM.ViewModels.PlotViewModel {
             Points     = { new DataPoint(0, 0) },
             LineStyle  = LineStyle.None,
             MarkerType = MarkerType.Circle,
-            Color      = OxyColors.BlueViolet,
-            Title      = "O"
+            Color      = OxyColors.BlueViolet
         };
     }
 }
